@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-18T20:54:04.707Z",
-  "roster_count": 102,
+  "generated_at": "2026-07-18T22:20:29.569Z",
+  "roster_count": 105,
   "counts": {
-    "needs-human-judgment": 56,
+    "needs-human-judgment": 59,
     "complete": 46
   },
   "unexpected_record_files": [],
@@ -924,6 +924,33 @@
       "sources": 7,
       "surface": "Mapbox product and application platform not selected",
       "outcome": "The docs establish an interactive map using Mapbox Standard style as the common Maps milestone, but an atomic journey remains unresolved until a human chooses web, iOS, or Android and, where required, an installation variant and framework."
+    },
+    {
+      "slug": "fly-io",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 22,
+      "sources": 9,
+      "surface": "Fly.io Getting started, with Quickstart: Launch your app as the general route and Launch a demo app as the fully executable candidate",
+      "outcome": "A Fly App created from the official HelloFly image has deployed, its status is inspectable, and its secure fly.dev URL opens in a browser."
+    },
+    {
+      "slug": "algolia",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 18,
+      "sources": 7,
+      "surface": "Get started with Algolia, Build your first search experience",
+      "outcome": "A local React InstantSearch app queries the new `quickstart-products` index, displays product results, updates the grid as the developer types, filters by product type, paginates, and highlights matching text."
+    },
+    {
+      "slug": "siemens",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 16,
+      "sources": 8,
+      "surface": "Siemens Xcelerator Developer Portal",
+      "outcome": "The portal gets a developer to product and API selection, but each Siemens product defines its own access model and result. A complete Building X Accounts API sandbox candidate reaches a successful `GET me/usergroups` response listing the UserGroups accessible to the machine user."
     }
   ]
 }

@@ -110,5 +110,9 @@
   {"ordinal": 100, "name": "Canva Developer Platform", "slug": "canva-developer-platform", "category": "Frameworks, mobile, games, hardware, and creative ecosystems"},
 
   {"ordinal": 101, "name": "Zendesk", "slug": "zendesk", "category": "B2B SaaS and enterprise ecosystems"},
-  {"ordinal": 102, "name": "Mapbox", "slug": "mapbox", "category": "Maps and location APIs"}
+  {"ordinal": 102, "name": "Mapbox", "slug": "mapbox", "category": "Maps and location APIs"},
+
+  {"ordinal": 103, "name": "Fly.io", "slug": "fly-io", "category": "Cloud and application runtimes"},
+  {"ordinal": 104, "name": "Algolia", "slug": "algolia", "category": "Data, databases, and search"},
+  {"ordinal": 105, "name": "Siemens", "slug": "siemens", "category": "B2B SaaS and enterprise ecosystems"}
 ]
