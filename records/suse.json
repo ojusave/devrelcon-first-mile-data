@@ -1,0 +1,338 @@
+{
+  "platform": {
+    "name": "SUSE",
+    "slug": "suse",
+    "organization": "SUSE"
+  },
+  "category": "API infrastructure and developer tooling",
+  "surface": {
+    "name": "SUSE Documentation, with the Rancher Prime Helm CLI proof of concept as a blocked candidate",
+    "selection_basis": "SUSE's documentation home presents many peer product families without naming a company-wide developer starting point. The Rancher Prime Helm CLI Quick Start is retained as a bounded candidate surface because it explicitly promises a proof-of-concept installation, but its required chart repository URL is hidden behind SUSE Customer Center authentication.",
+    "alternatives_considered": [
+      {
+        "name": "SUSE Linux Enterprise Server",
+        "url": "https://documentation.suse.com/sles/",
+        "reason_not_primary": "It is a peer operating-system product with installation and administration journeys rather than the declared company-wide developer default."
+      },
+      {
+        "name": "K3s",
+        "url": "https://documentation.suse.com/cloudnative/k3s/latest/en/",
+        "reason_not_primary": "It is a peer cloud-native product and is also used as an implementation prerequisite inside the selected Rancher candidate."
+      },
+      {
+        "name": "Deploy Rancher on Amazon EKS",
+        "url": "https://documentation.suse.com/cloudnative/rancher-manager/latest/en/installation-and-upgrade/quick-start/deploy-rancher/deploy-rancher.html",
+        "reason_not_primary": "The Rancher deployment index presents EKS, Equinix Metal, manual Helm, and AWS SaaS as alternative routes without a universal provider choice."
+      }
+    ]
+  },
+  "research_status": "blocked",
+  "researched_at": "2026-07-19",
+  "official_docs_only": true,
+  "entry_point": {
+    "developer_intent": "Choose a SUSE developer product and reach the first terminal state that its official quick-start documentation names.",
+    "starting_url": "https://documentation.suse.com/",
+    "assumed_prior_state": [
+      "No SUSE product choice, Rancher installation, Kubernetes cluster, kubeconfig, Helm repository, cert-manager installation, domain, or Rancher administrator password is assumed."
+    ]
+  },
+  "documented_first_success": {
+    "official_milestone": "Not established from a no-account state by public official documentation.",
+    "normalized_outcome": "The intended candidate terminal is a browser displaying the Rancher user interface, but the public path cannot obtain the required Rancher Prime Helm chart repository URL.",
+    "observable_completion_signal": "The downstream quick start says the Rancher UI should appear at the configured hostname; the public no-account path cannot reach that signal reproducibly.",
+    "boundary_evidence": {
+      "type": "not-established-by-docs",
+      "official_label_or_terminal_state": "Navigate to the configured sslip.io hostname and see the Rancher UI",
+      "source_ids": [
+        "S4"
+      ]
+    },
+    "why_this_is_the_boundary": "The quick start names the browser-visible Rancher UI as its proof-of-concept terminal, but it requires a Prime-only chart repository URL whose linked documentation redirects to SUSE identity authentication and does not expose account creation, entitlement, authorization, or the URL publicly.",
+    "source_ids": [
+      "S4"
+    ]
+  },
+  "prerequisites": [
+    {
+      "order": 1,
+      "type": "hardware",
+      "requirement": "Provide a Linux virtual machine reachable from the workstation; the guide says not to install on localhost and requires saving the machine's IP address.",
+      "required": true,
+      "source_ids": [
+        "S4"
+      ]
+    },
+    {
+      "order": 2,
+      "type": "software",
+      "requirement": "Select a supported Kubernetes version and have kubectl and Helm installed on the local workstation.",
+      "required": true,
+      "source_ids": [
+        "S4"
+      ]
+    },
+    {
+      "order": 3,
+      "type": "account",
+      "requirement": "An authenticated SUSE Customer Center session is required to open the Prime-only documentation and retrieve the Rancher Prime Helm chart repository URL; the public guide does not enumerate account creation, access approval, or the hidden URL.",
+      "required": true,
+      "source_ids": [
+        "S4"
+      ]
+    },
+    {
+      "order": 4,
+      "type": "permission",
+      "requirement": "Have root or equivalent sudo access on the Linux virtual machine and permission to copy its K3s kubeconfig to the workstation.",
+      "required": true,
+      "source_ids": [
+        "S4"
+      ]
+    },
+    {
+      "order": 5,
+      "type": "network",
+      "requirement": "Allow the workstation and browser to reach the Linux node on the Kubernetes API and web-service ports used by the guide.",
+      "required": true,
+      "source_ids": [
+        "S4"
+      ]
+    },
+    {
+      "order": 6,
+      "type": "domain",
+      "requirement": "Choose either the guide's IP-based sslip.io hostname or a real domain that points to the Linux node.",
+      "required": true,
+      "source_ids": [
+        "S4"
+      ]
+    }
+  ],
+  "primary_path": [
+    {
+      "step_number": 1,
+      "phase": "arrive",
+      "actor": "developer",
+      "interface": "documentation",
+      "action": "Open SUSE Documentation and choose the product family whose first mile is being measured.",
+      "details": [
+        "The home lists peer operating-system, cloud-native, edge, storage, virtualization, security, and AI products."
+      ],
+      "input": "https://documentation.suse.com/",
+      "output": "The product-specific documentation entry points are visible.",
+      "success_signal": "A product family can be selected.",
+      "failure_or_wait": "SUSE does not name one company-wide developer first mile on this page.",
+      "required": true,
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "step_number": 2,
+      "phase": "prepare",
+      "actor": "developer",
+      "interface": "documentation",
+      "action": "For the retained candidate, choose SUSE Rancher Prime and open its deployment quick starts.",
+      "details": [
+        "The deployment index offers Amazon EKS, Equinix Metal, manual installation, and Rancher for AWS SaaS."
+      ],
+      "input": "A product and deployment-route choice",
+      "output": "A provider-specific or manual deployment guide is selected.",
+      "success_signal": "The Helm CLI Quick Start is open for the manual proof-of-concept candidate.",
+      "failure_or_wait": "The product and deployment route change the prerequisites, commands, account gates, and terminal state.",
+      "required": true,
+      "source_ids": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "step_number": 3,
+      "phase": "authenticate",
+      "actor": "developer",
+      "interface": "browser",
+      "action": "Follow the Prime-only documentation link to obtain the required Rancher Prime Helm chart repository URL.",
+      "details": [
+        "The official public quick start states that authentication is required and directs the developer to use SUSE Customer Center credentials."
+      ],
+      "input": "SUSE Customer Center credentials and access to the Prime-only documentation",
+      "output": "A redirect to SUSE identity authentication is publicly observable.",
+      "success_signal": "No completed login, entitlement, chart URL, or return state is documented on the public official surface.",
+      "failure_or_wait": "The required chart URL and every authenticated intermediate state remain hidden from public documentation.",
+      "required": true,
+      "source_ids": [
+        "S4"
+      ]
+    }
+  ],
+  "candidate_paths": [],
+  "candidate_path_gap": {
+    "reason": "The public Helm CLI Quick Start requires `<helm-chart-repo-url>` from Prime-only documentation, but that link redirects to SUSE identity authentication and does not document account creation, entitlement, authorization, the returned URL, or convergence back to the quick start.",
+    "impact": "The Rancher chart repository cannot be added and the documented cert-manager, Rancher install, hostname, and browser-verification sequence cannot be connected chronologically to a no-account starting state without inference.",
+    "source_ids": [
+      "S4"
+    ]
+  },
+  "branches": [
+    {
+      "at_step": 1,
+      "condition": "A different SUSE product is intended",
+      "path": "Use that product family's own setup or quick-start documentation.",
+      "effect_on_first_success": "Changes the complete journey and terminal success rather than merely changing one step.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "at_step": 2,
+      "condition": "A managed or provider-specific Rancher route is preferred",
+      "path": "Choose Amazon EKS, Equinix Metal, or Rancher for AWS SaaS instead of the Helm CLI route.",
+      "effect_on_first_success": "Adds provider-specific accounts, infrastructure, access, and commands.",
+      "source_ids": [
+        "S3"
+      ]
+    }
+  ],
+  "friction_gates": [
+    {
+      "at_step": 1,
+      "type": "choice",
+      "description": "SUSE exposes many peer product families without a company-wide default developer path.",
+      "documented_requirement": true,
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "at_step": 2,
+      "type": "choice",
+      "description": "Rancher itself offers multiple deployment quick starts with different provider and account requirements.",
+      "documented_requirement": true,
+      "source_ids": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "at_step": 3,
+      "type": "access",
+      "description": "The required Rancher Prime chart repository URL is available only through Prime-only documentation that redirects to SUSE identity authentication.",
+      "documented_requirement": true,
+      "source_ids": [
+        "S4"
+      ]
+    }
+  ],
+  "time_to_first_success": {
+    "vendor_claim": false,
+    "value": "not documented",
+    "source_ids": []
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "title": "SUSE Documentation",
+      "url": "https://documentation.suse.com/",
+      "official_domain": true,
+      "source_type": "documentation",
+      "accessed_at": "2026-07-19",
+      "last_updated_if_shown": null,
+      "sections_used": [
+        "Product families"
+      ],
+      "evidence_supported": [
+        "Broad SUSE developer surface",
+        "Peer product families",
+        "Absence of one company-wide starting route"
+      ]
+    },
+    {
+      "id": "S2",
+      "title": "SUSE Rancher Prime Deployment Quick Start Guides",
+      "url": "https://documentation.suse.com/cloudnative/rancher-manager/latest/en/installation-and-upgrade/quick-start/quick-start.html",
+      "official_domain": true,
+      "source_type": "quickstart",
+      "accessed_at": "2026-07-19",
+      "last_updated_if_shown": null,
+      "sections_used": [
+        "SUSE Rancher Prime Deployment Quick Start Guides",
+        "Deploying Rancher Server"
+      ],
+      "evidence_supported": [
+        "Sandbox and evaluation scope",
+        "Proof-of-concept purpose",
+        "Deployment-guide grouping"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Deploying SUSE Rancher Prime Server",
+      "url": "https://documentation.suse.com/cloudnative/rancher-manager/latest/en/installation-and-upgrade/quick-start/deploy-rancher/deploy-rancher.html",
+      "official_domain": true,
+      "source_type": "quickstart",
+      "accessed_at": "2026-07-19",
+      "last_updated_if_shown": null,
+      "sections_used": [
+        "Deploying SUSE Rancher Prime Server"
+      ],
+      "evidence_supported": [
+        "Amazon EKS route",
+        "Equinix Metal route",
+        "Manual install route",
+        "Rancher for AWS SaaS route"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Helm CLI Quick Start",
+      "url": "https://documentation.suse.com/cloudnative/rancher-manager/latest/en/installation-and-upgrade/quick-start/deploy-rancher/helm-cli.html",
+      "official_domain": true,
+      "source_type": "quickstart",
+      "accessed_at": "2026-07-19",
+      "last_updated_if_shown": null,
+      "sections_used": [
+        "Prerequisites",
+        "Install Kubernetes",
+        "Save Your Linux Node IP Address",
+        "Copy the kubeconfig",
+        "Install cert-manager",
+        "Install Rancher",
+        "Navigate to the Rancher UI"
+      ],
+      "evidence_supported": [
+        "Proof-of-concept boundary",
+        "VM and tool prerequisites",
+        "K3s command",
+        "Remote kubeconfig sequence",
+        "SCC chart access",
+        "cert-manager commands",
+        "Hostname options",
+        "Rancher Helm command",
+        "Browser-visible terminal"
+      ]
+    }
+  ],
+  "uncertainties": [
+    {
+      "question": "Which SUSE product and deployment mode should define a company-wide first mile?",
+      "impact": "The answer changes the entire chronology, prerequisites, access gates, and success boundary.",
+      "reason_unresolved": "The official documentation home exposes many peer products, and even the selected Rancher family exposes multiple peer deployment routes.",
+      "checked_source_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "question": "What exact public sequence creates or authorizes an SCC account, exposes the Rancher Prime Helm chart repository URL, and returns the developer to the installation?",
+      "impact": "Without that bridge, the Helm repository command and every later proof-of-concept action are not reproducible from the declared no-account state.",
+      "reason_unresolved": "The public quick start shows a placeholder and an authenticated link; the linked Prime-only documentation redirects to SUSE identity authentication.",
+      "checked_source_ids": [
+        "S4"
+      ]
+    }
+  ],
+  "excluded_after_success": [
+    "Logging in, changing the bootstrap password, importing downstream clusters, deploying workloads, production certificates, backups, high availability, monitoring, and production hardening occur after the Rancher UI first appears."
+  ]
+}

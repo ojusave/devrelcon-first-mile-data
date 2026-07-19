@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-19T16:26:25.363Z",
-  "roster_count": 171,
+  "generated_at": "2026-07-19T17:08:10.535Z",
+  "roster_count": 183,
   "counts": {
-    "needs-human-judgment": 81,
+    "needs-human-judgment": 84,
     "complete": 52,
-    "blocked": 38
+    "blocked": 47
   },
   "unexpected_record_files": [],
   "records": [
@@ -1546,6 +1546,114 @@
       "sources": 7,
       "surface": "Freshworks developer platform first app through local product rendering",
       "outcome": "The intended terminal is the `common-starter-template` app running through the local FDK server and rendered inside the selected Freshworks product account after `?dev=true` is appended to the account URL."
+    },
+    {
+      "slug": "zoho",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 6,
+      "surface": "Zoho OAuth self client access-token path",
+      "outcome": "A successful Self Client token exchange returns an access token, token type, API domain, and expiration; the authorization-code branch also returns a refresh token."
+    },
+    {
+      "slug": "pipedrive",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 5,
+      "surface": "Pipedrive API-token first request through Postman",
+      "outcome": "An authenticated `GET https://{companydomain}.pipedrive.com/api/v2/deals` request returns HTTP 200 and a JSON body whose `success` field is true, whether the data array contains deals or is empty."
+    },
+    {
+      "slug": "docusign",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 4,
+      "surface": "Docusign eSignature REST API main Node.js Quickstart first run",
+      "outcome": "The intended first success is the preconfigured main Node.js Quickstart running locally, authenticating with Authorization Code Grant, and opening its embedded-signing code example."
+    },
+    {
+      "slug": "dropbox",
+      "status": "blocked",
+      "errors": [],
+      "steps": 4,
+      "sources": 5,
+      "surface": "Dropbox JavaScript SDK generated-token root-folder list",
+      "outcome": "The Node.js `filesListFolder({ path: '' })` call resolves and the example logs the returned `result.entries` array for the account's root folder."
+    },
+    {
+      "slug": "jetbrains",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 7,
+      "sources": 4,
+      "surface": "JetBrains product catalog, with the IntelliJ Platform Plugin SDK first local plugin run as one complete candidate",
+      "outcome": "The wizard-generated Gradle plugin project starts the target IntelliJ Platform IDE in a standalone development instance with the plugin loaded."
+    },
+    {
+      "slug": "jfrog",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 5,
+      "surface": "JFrog Artifactory Cloud first Generic local repository artifact deployment",
+      "outcome": "A developer-controlled file is stored at a chosen path in a newly created Generic local Artifactory repository."
+    },
+    {
+      "slug": "sonatype",
+      "status": "blocked",
+      "errors": [],
+      "steps": 4,
+      "sources": 5,
+      "surface": "Nexus Repository Community Edition first hosted Raw component upload",
+      "outcome": "A file is stored as a component in a newly created Raw hosted repository, and Nexus Repository redirects the user to search results for the uploaded component path."
+    },
+    {
+      "slug": "harness",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 4,
+      "surface": "Harness CI first Cloud build pipeline",
+      "outcome": "A Cloud CI build for a selected Git branch executes the configured Run step containing `echo \"Harness CI is fast\"`."
+    },
+    {
+      "slug": "spacelift",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 7,
+      "surface": "Spacelift Quick Start through the first stack run",
+      "outcome": "The intended terminal is a completed first Spacelift stack run, but the required identity-provider authorization and account-creation convergence are not publicly documented."
+    },
+    {
+      "slug": "canonical",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 12,
+      "sources": 5,
+      "surface": "Ubuntu for Developers, with Python Hello World as one complete candidate",
+      "outcome": "In the Python candidate, the developer runs the published requests-based program inside a virtual environment and sees `Hello, world!` on standard output."
+    },
+    {
+      "slug": "suse",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 4,
+      "surface": "SUSE Documentation, with the Rancher Prime Helm CLI proof of concept as a blocked candidate",
+      "outcome": "The intended candidate terminal is a browser displaying the Rancher user interface, but the public path cannot obtain the required Rancher Prime Helm chart repository URL."
+    },
+    {
+      "slug": "nvidia-developer",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 2,
+      "sources": 7,
+      "surface": "NVIDIA Developer, with the current CUDA Toolkit Ubuntu Debian Installer route retained as an unresolved candidate",
+      "outcome": "The intended CUDA terminal is a successful nbody run on a supported Ubuntu system with a compatible NVIDIA GPU, but the current official installation and sample pages do not form one version-consistent executable path."
     }
   ]
 }

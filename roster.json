@@ -181,5 +181,17 @@
   {"ordinal":168,"name":"Airtable","slug":"airtable","category":"B2B SaaS and enterprise ecosystems"},
   {"ordinal":169,"name":"monday.com","slug":"monday-com","category":"B2B SaaS and enterprise ecosystems"},
   {"ordinal":170,"name":"Intercom","slug":"intercom","category":"B2B SaaS and enterprise ecosystems"},
-  {"ordinal":171,"name":"Freshworks","slug":"freshworks","category":"B2B SaaS and enterprise ecosystems"}
+  {"ordinal":171,"name":"Freshworks","slug":"freshworks","category":"B2B SaaS and enterprise ecosystems"},
+  {"ordinal":172,"name":"Zoho","slug":"zoho","category":"B2B SaaS and enterprise ecosystems"},
+  {"ordinal":173,"name":"Pipedrive","slug":"pipedrive","category":"B2B SaaS and enterprise ecosystems"},
+  {"ordinal":174,"name":"DocuSign","slug":"docusign","category":"B2B SaaS and enterprise ecosystems"},
+  {"ordinal":175,"name":"Dropbox","slug":"dropbox","category":"B2B SaaS and enterprise ecosystems"},
+  {"ordinal":176,"name":"JetBrains","slug":"jetbrains","category":"API infrastructure and developer tooling"},
+  {"ordinal":177,"name":"JFrog","slug":"jfrog","category":"API infrastructure and developer tooling"},
+  {"ordinal":178,"name":"Sonatype","slug":"sonatype","category":"API infrastructure and developer tooling"},
+  {"ordinal":179,"name":"Harness","slug":"harness","category":"API infrastructure and developer tooling"},
+  {"ordinal":180,"name":"Spacelift","slug":"spacelift","category":"API infrastructure and developer tooling"},
+  {"ordinal":181,"name":"Canonical","slug":"canonical","category":"API infrastructure and developer tooling"},
+  {"ordinal":182,"name":"SUSE","slug":"suse","category":"API infrastructure and developer tooling"},
+  {"ordinal":183,"name":"NVIDIA Developer","slug":"nvidia-developer","category":"API infrastructure and developer tooling"}
 ]
