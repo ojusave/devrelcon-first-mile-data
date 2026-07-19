@@ -169,5 +169,17 @@
   {"ordinal":156,"name":"Checkout.com","slug":"checkout-com","category":"Payments, fintech, and commerce"},
   {"ordinal":157,"name":"Klarna","slug":"klarna","category":"Payments, fintech, and commerce"},
   {"ordinal":158,"name":"Mollie","slug":"mollie","category":"Payments, fintech, and commerce"},
-  {"ordinal":159,"name":"Razorpay","slug":"razorpay","category":"Payments, fintech, and commerce"}
+  {"ordinal":159,"name":"Razorpay","slug":"razorpay","category":"Payments, fintech, and commerce"},
+  {"ordinal":160,"name":"Airwallex","slug":"airwallex","category":"Payments, fintech, and commerce"},
+  {"ordinal":161,"name":"GoCardless","slug":"gocardless","category":"Payments, fintech, and commerce"},
+  {"ordinal":162,"name":"Dwolla","slug":"dwolla","category":"Payments, fintech, and commerce"},
+  {"ordinal":163,"name":"Marqeta","slug":"marqeta","category":"Payments, fintech, and commerce"},
+  {"ordinal":164,"name":"Paddle","slug":"paddle","category":"Payments, fintech, and commerce"},
+  {"ordinal":165,"name":"Chargebee","slug":"chargebee","category":"Payments, fintech, and commerce"},
+  {"ordinal":166,"name":"Asana","slug":"asana","category":"B2B SaaS and enterprise ecosystems"},
+  {"ordinal":167,"name":"Notion","slug":"notion","category":"B2B SaaS and enterprise ecosystems"},
+  {"ordinal":168,"name":"Airtable","slug":"airtable","category":"B2B SaaS and enterprise ecosystems"},
+  {"ordinal":169,"name":"monday.com","slug":"monday-com","category":"B2B SaaS and enterprise ecosystems"},
+  {"ordinal":170,"name":"Intercom","slug":"intercom","category":"B2B SaaS and enterprise ecosystems"},
+  {"ordinal":171,"name":"Freshworks","slug":"freshworks","category":"B2B SaaS and enterprise ecosystems"}
 ]

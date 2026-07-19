@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-19T12:53:58.723Z",
-  "roster_count": 159,
+  "generated_at": "2026-07-19T16:26:25.363Z",
+  "roster_count": 171,
   "counts": {
-    "needs-human-judgment": 77,
+    "needs-human-judgment": 81,
     "complete": 52,
-    "blocked": 30
+    "blocked": 38
   },
   "unexpected_record_files": [],
   "records": [
@@ -1438,6 +1438,114 @@
       "sources": 5,
       "surface": "Razorpay Payments product selection and first test transaction",
       "outcome": "The developer completes one simulated Razorpay transaction using the product route selected for the business."
+    },
+    {
+      "slug": "airwallex",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 12,
+      "sources": 6,
+      "surface": "Airwallex sandbox API authentication",
+      "outcome": "The developer receives a sandbox bearer access token from the Authentication API."
+    },
+    {
+      "slug": "gocardless",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 3,
+      "surface": "GoCardless Getting Started through the first test payment authorisation",
+      "outcome": "No complete first-success path can be established because the required sandbox signup transition is not publicly documented."
+    },
+    {
+      "slug": "dwolla",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 14,
+      "sources": 3,
+      "surface": "Dwolla Quickstart through the first authenticated API request",
+      "outcome": "The developer authenticates to the Dwolla sandbox and receives the Root resource links, including the Platform Account URL."
+    },
+    {
+      "slug": "marqeta",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 19,
+      "sources": 5,
+      "surface": "Marqeta Core API Quick Start through a simulated transaction",
+      "outcome": "The developer simulates the documented $10 VISA authorization in the public sandbox and can view that card transaction in Transaction Timeline."
+    },
+    {
+      "slug": "paddle",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 4,
+      "surface": "Paddle Billing end-to-end sandbox Quickstart",
+      "outcome": "The intended terminal is a Paddle sandbox pricing page that completes a test checkout and sends the resulting transaction lifecycle webhooks to Hookdeck Console."
+    },
+    {
+      "slug": "chargebee",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 20,
+      "sources": 6,
+      "surface": "Chargebee Billing API Quickstart",
+      "outcome": "The test-site API response contains the created active subscription, its customer, the charged test card, and the generated paid invoice."
+    },
+    {
+      "slug": "asana",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 5,
+      "surface": "Asana REST API Quick start guide with a personal access token",
+      "outcome": "The intended terminal is an authenticated sequence that creates `Sample task`, retrieves it, renames it to `Modified task`, deletes it, and reaches the guide's readiness statement."
+    },
+    {
+      "slug": "notion",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 4,
+      "surface": "Notion API quickstart with a personal access token",
+      "outcome": "The intended terminal is a private page named `Hello from the API`, created from the published Markdown request and visible through the returned URL or the Private section of the Notion sidebar."
+    },
+    {
+      "slug": "airtable",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 5,
+      "surface": "Airtable Web API list-records path with a personal access token",
+      "outcome": "The intended terminal is an authenticated request to `https://api.airtable.com/v0/{baseId}/{tableName}` that returns the first page under the `records` key."
+    },
+    {
+      "slug": "monday-com",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 5,
+      "surface": "monday platform API first GraphQL request with a personal token",
+      "outcome": "The intended terminal is a token-authenticated POST to `https://api.monday.com/v2` containing one of the guide's board queries."
+    },
+    {
+      "slug": "intercom",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 5,
+      "surface": "Intercom workspace and app setup through the first Contacts API call",
+      "outcome": "The intended terminal is a successful `POST https://api.intercom.io/contacts` for the guide's sample email using the app's token and API version 2.11."
+    },
+    {
+      "slug": "freshworks",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 7,
+      "surface": "Freshworks developer platform first app through local product rendering",
+      "outcome": "The intended terminal is the `common-starter-template` app running through the local FDK server and rendered inside the selected Freshworks product account after `?dev=true` is appended to the account URL."
     }
   ]
 }
