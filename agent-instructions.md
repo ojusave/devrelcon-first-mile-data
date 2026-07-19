@@ -1,37 +1,28 @@
-# Three-stage first-mile research instructions
+# Parallel two-pass first-mile research instructions
 
 Each record covers exactly one roster entry. Work only within the roster entries
 assigned to your batch, and never edit another batch's records.
 
-## Role separation
+## Two-pass ownership
 
-- **Evidence researcher:** inspect current official sources, write one evidence
-  packet, validate its source references, hand it to the builder, then continue
-  to the next roster entry. Do not write or approve the schema record. A packet
-  becomes immutable when handed off. If later evidence requires correction,
-  stop and send the parent a revision request; do not overwrite the live packet
-  until the parent pauses downstream ownership.
-- **Record builder:** convert only the received packet into the canonical schema,
-  preserve every documented gap, run deterministic validation, hand the staged
-  record to the checker, then continue to the next packet. Do not add facts from
-  memory or independently redefine the route. After checker handoff, never
-  delete, replace, or rebuild that staged record unless the parent records a
-  rework request and the checker explicitly releases file ownership.
-- **Authenticity checker:** reopen every load-bearing official source without
-  relying on the maker's narrative, compare every evidence-bearing field, make
-  only accuracy-required corrections, log each correction, and rerun validation.
-  Preserve accurate sentences instead of stylistically rewriting them. The
-  checker owns the staged record from receipt through its audit return; upstream
-  revisions are routed through the parent rather than applied concurrently.
-- **Parent:** freezes and deduplicates the roster, routes handoffs, accepts only
-  checker-passed records, closes every role handoff, integrates records, verifies
-  unchanged prior-record hashes, and publishes the scoped private change. The
-  parent serializes any post-handoff revision: pause the checker, release file
-  ownership, rebuild and validate once, then return the new artifact to checking.
+- **Pass 1, maker:** research each assigned platform end to end and write its
+  schema-valid staging record directly. The maker owns only its assigned files,
+  uses current official sources, and does not approve its own record.
+- **Pass 2, independent checker:** review records made by another agent. Reopen
+  every load-bearing official source without relying on the maker's narrative,
+  compare every evidence-bearing field, make only accuracy-required corrections,
+  log each correction, and rerun validation. Preserve accurate sentences instead
+  of stylistically rewriting them.
+- **Parent:** freezes and deduplicates the roster, assigns non-overlapping maker
+  files, rotates checker ownership, accepts only checker-passed records, verifies
+  unchanged earlier-record hashes, and publishes scoped private batches.
+- A record has exactly one writer at a time. Maker ownership ends at checker
+  handoff. Any later revision is routed through the parent, which pauses the
+  checker and explicitly transfers ownership before another edit.
 
 ## Required sequence
 
-1. Read the role-specific handoff, this file, the knowledge base `README.md`,
+1. Read the pass-specific assignment, this file, the knowledge base `README.md`,
    `record.schema.json`, `record.template.json`, and the assigned roster entry.
 2. Start from the current official developer or product documentation home.
 3. Identify the vendor-presented general or recommended getting-started surface.
@@ -67,16 +58,34 @@ assigned to your batch, and never edit another batch's records.
    evidence-bearing field. Record missing or contradictory transitions as
    uncertainties.
 10. Stop at first success and list later material explicitly excluded.
-11. Write only the role's assigned staging artifact with `apply_patch`. Never
-    edit the canonical record directory before checker approval and parent
-    integration.
-12. Run the assigned packet or record validator and correct deterministic
+11. Write only the assigned staging record with `apply_patch`. Never edit the
+    canonical record directory before checker approval and parent integration.
+12. Run the record validator and correct deterministic
     failures before handoff. Validation proves structure and source-reference
     consistency only, not factual completeness.
 
+## Compactness without evidence loss
+
+The workshop needs the complete first path, not a platform encyclopedia. Keep
+the record concise by removing prose duplication, never by omitting a required
+action, branch, gate, wait, transition, terminal, source, or uncertainty.
+
+- Use one factual sentence per chronological action.
+- Capture only the vendor-presented getting-started surface and the material peer
+  alternatives needed to explain why no single route can be chosen.
+- Stop at the documented first-success boundary. Name later work in
+  `excluded_after_success` without researching it further.
+- Do not repeat the same source explanation across `selection_basis`, steps,
+  branches, friction gates, and uncertainties. Put each fact in the field where
+  it changes the path, then cite it there.
+- Keep every source needed to support the path. There is no source-count limit.
+- Empty arrays are correct when the official path contains no item of that type.
+- A short record is acceptable only when a checker can reconstruct the complete
+  documented path from its ordered steps and attached sources.
+
 ## Evidence-fit and false-success gates
 
-Apply these gates to every packet, record, and audit. They come from defects an
+Apply these gates to every record and audit. They come from defects an
 independent checker found in the three-company pilot.
 
 1. A cited page must support the exact sentence, not merely an adjacent concept.
@@ -138,8 +147,8 @@ independent checker found in the three-company pilot.
 - No researching the whole platform after the first meaningful success.
 - No claim that schema validity proves source completeness.
 - No compressed branch paragraph in place of a reconstructable candidate path.
-- No handoff claimed complete until the downstream artifact exists, the named
-  recipient has returned evidence, and the parent has recorded closure.
+- No handoff claimed complete until the staged record exists, the named checker
+  has returned an audit, and the parent has recorded closure.
 
 ## Return
 

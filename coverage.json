@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-19T05:46:49.561Z",
-  "roster_count": 123,
+  "generated_at": "2026-07-19T18:38:55.546Z",
+  "roster_count": 205,
   "counts": {
-    "needs-human-judgment": 70,
-    "complete": 47,
-    "blocked": 6
+    "needs-human-judgment": 94,
+    "complete": 54,
+    "blocked": 57
   },
   "unexpected_record_files": [],
   "records": [
@@ -1114,6 +1114,744 @@
       "sources": 8,
       "surface": "Weaviate Cloud free cluster through Python Movie collection import",
       "outcome": "No complete Weaviate Cloud first-success outcome can be established because the current account registration form and transitions remain incompletely documented."
+    },
+    {
+      "slug": "qdrant-cloud",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 26,
+      "sources": 9,
+      "surface": "Qdrant Cloud free cluster through Python semantic search with Cloud Inference",
+      "outcome": "The developer loads the official menu-item dataset, embeds it with a free Qdrant Cloud Inference model, and performs the published semantic search for vegetarian dishes."
+    },
+    {
+      "slug": "zilliz-cloud",
+      "status": "blocked",
+      "errors": [],
+      "steps": 5,
+      "sources": 10,
+      "surface": "Zilliz Cloud free cluster through Python AutoID insert",
+      "outcome": "No complete Zilliz Cloud first-success outcome can be established because required first-login onboarding fields and transitions remain incompletely documented."
+    },
+    {
+      "slug": "perplexity",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 12,
+      "sources": 9,
+      "surface": "Perplexity API Quickstart, Python Agent API route",
+      "outcome": "The Python program sends the published low-preset Agent API request and prints its web-grounded response text."
+    },
+    {
+      "slug": "groqcloud",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 5,
+      "surface": "Groq API Quickstart, Python chat-completion route",
+      "outcome": "The intended terminal is the published Python program printing a Groq chat completion, but the public official path cannot be reconstructed through the required account and key gate."
+    },
+    {
+      "slug": "together-ai",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 24,
+      "sources": 8,
+      "surface": "Together AI general Quickstart, Python serverless chat route",
+      "outcome": "The Python program sends the published MiniMax M3 chat prompt and prints the returned answer."
+    },
+    {
+      "slug": "fireworks-ai",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 9,
+      "surface": "Serverless Quickstart, Fireworks Python SDK route",
+      "outcome": "The intended terminal is the Fireworks Python SDK printing the published DeepSeek V3.1 Spanish-greeting response, but the public official path cannot be reconstructed through signup and dashboard access."
+    },
+    {
+      "slug": "cerebras-inference",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 6,
+      "surface": "Cerebras Inference Quickstart through the first Python chat completion",
+      "outcome": "No complete Cerebras Inference first-success path can be established because required account registration is not publicly enumerated."
+    },
+    {
+      "slug": "elevenlabs",
+      "status": "complete",
+      "errors": [],
+      "steps": 20,
+      "sources": 8,
+      "surface": "ElevenAPI Quickstart through the first Python text-to-speech playback",
+      "outcome": "The developer's Python script sends the published text-to-speech request and audibly plays the returned speech."
+    },
+    {
+      "slug": "stability-ai",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 7,
+      "surface": "Stable Image Core REST v2beta through the first saved lighthouse image",
+      "outcome": "No complete Stability AI first-success path can be established because required Google account authorization and Developer Platform account convergence are not publicly enumerated."
+    },
+    {
+      "slug": "weights-and-biases",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 2,
+      "surface": "W&B Models Quickstart through a first tracked training run",
+      "outcome": "No complete W&B first-success route can be established because the current account-registration form and transitions are not publicly enumerated."
+    },
+    {
+      "slug": "modal",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 3,
+      "surface": "Modal Hello, world! through a first cloud function run",
+      "outcome": "No complete first-user route can be established because the required GitHub or Google identity-provider authorization and return-to-Modal transition are not enumerated by Modal's public documentation."
+    },
+    {
+      "slug": "assemblyai",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 4,
+      "surface": "AssemblyAI Quickstart through a first pre-recorded transcription",
+      "outcome": "No complete first-user route can be established because the required email-registration or Google-authentication transitions after the initial signup choice are not publicly enumerated."
+    },
+    {
+      "slug": "deepgram",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 6,
+      "surface": "Deepgram Make Your First API Request through pre-recorded transcription",
+      "outcome": "A no-account developer cannot be taken through the first authenticated transcription because the required account-registration transition is hidden inside the client-rendered Deepgram Console."
+    },
+    {
+      "slug": "telnyx",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 13,
+      "surface": "Telnyx Send Your First Message through an on-net queued SMS",
+      "outcome": "The first-message guide cannot be reconstructed from no account because Telnyx may require undocumented signup KYC, may create an AI-only Freemium account, and may place a full account into TPVE Trial, whose one-number limit conflicts with the guide's two-number route."
+    },
+    {
+      "slug": "sinch",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 6,
+      "surface": "Sinch Conversation API Getting Started through a first SMS send",
+      "outcome": "A no-account developer cannot be taken through the Conversation API SMS example because the current Sinch ID signup transition is client-rendered and the guide does not demonstrate an observable response or delivery terminal for its send request."
+    },
+    {
+      "slug": "bird",
+      "status": "complete",
+      "errors": [],
+      "steps": 10,
+      "sources": 9,
+      "surface": "Bird Send your first email through deterministic sandbox delivery",
+      "outcome": "A deterministic sandbox email sent through Bird's shared onboarding domain is accepted and then reports delivered status without reaching a real mailbox."
+    },
+    {
+      "slug": "ably",
+      "status": "blocked",
+      "errors": [],
+      "steps": 4,
+      "sources": 4,
+      "surface": "Ably Pub/Sub JavaScript getting-started route",
+      "outcome": "The official JavaScript route cannot be reconstructed from a no-account state because the public signup page ends at the Sign up submission and does not establish the required verification or completed-account transition."
+    },
+    {
+      "slug": "agora",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 32,
+      "sources": 4,
+      "surface": "Agora Video SDK Web Quickstart through a two-client basic video call",
+      "outcome": "Two Web Video SDK clients have joined the same Agora channel with the same App ID, channel name, and temporary token, published their local audio and video, and displayed local and remote video."
+    },
+    {
+      "slug": "livekit",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 5,
+      "surface": "LiveKit Voice AI quickstart through the first browser Agent Console response",
+      "outcome": "The Voice AI quickstart cannot be reconstructed from a no-account state because the public Cloud login page exposes identity choices but not the email-link or identity-provider completion states that lead to an account and free project."
+    },
+    {
+      "slug": "dolby-io",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 6,
+      "surface": "OptiView Real-time Streaming Part 1 dashboard broadcast and hosted playback",
+      "outcome": "The dashboard-only first stream cannot be reconstructed from a no-account state because the public tutorial assumes an OptiView Real-time account and the official dashboard response does not expose a registration sequence."
+    },
+    {
+      "slug": "cloudinary",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 23,
+      "sources": 11,
+      "surface": "Image and Video Developer Kickstart through a completed SDK quick start",
+      "outcome": "Run a selected official SDK quick start end to end and observe its documented media output."
+    },
+    {
+      "slug": "imgix",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 3,
+      "surface": "Quick Start Guide through serving the first asset",
+      "outcome": "No complete first-user Imgix path can be established because the account-creation application hides the required registration and dashboard-convergence transitions."
+    },
+    {
+      "slug": "stytch",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 7,
+      "surface": "Authentication Quickstart through a working login or signup flow",
+      "outcome": "No universal Stytch first-success route can be established because required implementation choices remain open and the prerequisite account and initial project transition is hidden."
+    },
+    {
+      "slug": "descope",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 4,
+      "surface": "Descope Flows Quickstart through a tested sign-up or sign-in",
+      "outcome": "No complete Descope first-user path can be established because the required account, project, and onboarding-wizard transitions are hidden and the recommended Flow route still requires an implementation choice."
+    },
+    {
+      "slug": "fusionauth",
+      "status": "complete",
+      "errors": [],
+      "steps": 23,
+      "sources": 4,
+      "surface": "5 Minute Intro, Docker route",
+      "outcome": "The registered administrator logs into the sample Express application through FusionAuth and returns to the home page with a personalized greeting."
+    },
+    {
+      "slug": "ory",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 4,
+      "surface": "Ory Developer Portal and framework Quickstarts",
+      "outcome": "The intended terminal is a user created through an Ory-backed registration page, but the documentation home does not select one implementation route and the highlighted Next.js guide does not enumerate the registration form transition."
+    },
+    {
+      "slug": "teleport",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 4,
+      "surface": "Get Started, Enterprise Cloud route",
+      "outcome": "The intended Step 1 terminal is a provisioned dedicated Teleport Cloud cluster with a local administrator and saved recovery codes, but the complete signup flow is not documented publicly."
+    },
+    {
+      "slug": "twingate",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 3,
+      "surface": "Private Access Quick Start",
+      "outcome": "The intended terminal is an authenticated Twingate Client directly reaching the configured private Resource from the developer's device, but the required free-account signup path is not publicly documented."
+    },
+    {
+      "slug": "gitguardian",
+      "status": "blocked",
+      "errors": [],
+      "steps": 4,
+      "sources": 5,
+      "surface": "ggshield local repository secret scan",
+      "outcome": "ggshield has authenticated to a GitGuardian workspace and completed a secret scan of the selected local repository."
+    },
+    {
+      "slug": "semgrep",
+      "status": "complete",
+      "errors": [],
+      "steps": 7,
+      "sources": 4,
+      "surface": "Semgrep Community Edition Python command-injection quickstart on Linux",
+      "outcome": "Semgrep Community Edition scans the official Python sample with the published Python command-injection ruleset and identifies the unsafe `os.system` call."
+    },
+    {
+      "slug": "cyberark",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 20,
+      "sources": 1,
+      "surface": "CyberArk Conjur Open Source Docker Compose quickstart",
+      "outcome": "The local BotApp authenticates to Conjur OSS, fetches the generated value stored in `BotApp/secretVar`, displays it, and reaches the quickstart congratulations message."
+    },
+    {
+      "slug": "f5-distributed-cloud",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 4,
+      "surface": "F5 Distributed Cloud Console initial onboarding",
+      "outcome": "The developer has entered the assigned F5 Distributed Cloud tenant, accepted initial terms if required, selected work domains and skill level, and reached Console Home with workspace tiles."
+    },
+    {
+      "slug": "checkout-com",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 2,
+      "surface": "Flow sandbox card payment",
+      "outcome": "The public sources do not establish the full path from no account to a successful Flow sandbox payment because the mandatory test-account form and its convergence into Dashboard access are hidden."
+    },
+    {
+      "slug": "klarna",
+      "status": "complete",
+      "errors": [],
+      "steps": 16,
+      "sources": 5,
+      "surface": "Klarna Payments playground web integration with the in-line widget",
+      "outcome": "A test customer completes the Klarna widget flow and the server exchanges the authorization token for a Klarna order."
+    },
+    {
+      "slug": "mollie",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 5,
+      "surface": "Payments API with Mollie Checkout",
+      "outcome": "The public sources do not establish the complete no-account path to a paid test payment because the interactive account and initial profile convergence is not documented atomically."
+    },
+    {
+      "slug": "razorpay",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 22,
+      "sources": 5,
+      "surface": "Razorpay Payments product selection and first test transaction",
+      "outcome": "The developer completes one simulated Razorpay transaction using the product route selected for the business."
+    },
+    {
+      "slug": "airwallex",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 12,
+      "sources": 6,
+      "surface": "Airwallex sandbox API authentication",
+      "outcome": "The developer receives a sandbox bearer access token from the Authentication API."
+    },
+    {
+      "slug": "gocardless",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 3,
+      "surface": "GoCardless Getting Started through the first test payment authorisation",
+      "outcome": "No complete first-success path can be established because the required sandbox signup transition is not publicly documented."
+    },
+    {
+      "slug": "dwolla",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 14,
+      "sources": 3,
+      "surface": "Dwolla Quickstart through the first authenticated API request",
+      "outcome": "The developer authenticates to the Dwolla sandbox and receives the Root resource links, including the Platform Account URL."
+    },
+    {
+      "slug": "marqeta",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 19,
+      "sources": 5,
+      "surface": "Marqeta Core API Quick Start through a simulated transaction",
+      "outcome": "The developer simulates the documented $10 VISA authorization in the public sandbox and can view that card transaction in Transaction Timeline."
+    },
+    {
+      "slug": "paddle",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 4,
+      "surface": "Paddle Billing end-to-end sandbox Quickstart",
+      "outcome": "The intended terminal is a Paddle sandbox pricing page that completes a test checkout and sends the resulting transaction lifecycle webhooks to Hookdeck Console."
+    },
+    {
+      "slug": "chargebee",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 20,
+      "sources": 6,
+      "surface": "Chargebee Billing API Quickstart",
+      "outcome": "The test-site API response contains the created active subscription, its customer, the charged test card, and the generated paid invoice."
+    },
+    {
+      "slug": "asana",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 5,
+      "surface": "Asana REST API Quick start guide with a personal access token",
+      "outcome": "The intended terminal is an authenticated sequence that creates `Sample task`, retrieves it, renames it to `Modified task`, deletes it, and reaches the guide's readiness statement."
+    },
+    {
+      "slug": "notion",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 4,
+      "surface": "Notion API quickstart with a personal access token",
+      "outcome": "The intended terminal is a private page named `Hello from the API`, created from the published Markdown request and visible through the returned URL or the Private section of the Notion sidebar."
+    },
+    {
+      "slug": "airtable",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 5,
+      "surface": "Airtable Web API list-records path with a personal access token",
+      "outcome": "The intended terminal is an authenticated request to `https://api.airtable.com/v0/{baseId}/{tableName}` that returns the first page under the `records` key."
+    },
+    {
+      "slug": "monday-com",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 5,
+      "surface": "monday platform API first GraphQL request with a personal token",
+      "outcome": "The intended terminal is a token-authenticated POST to `https://api.monday.com/v2` containing one of the guide's board queries."
+    },
+    {
+      "slug": "intercom",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 5,
+      "surface": "Intercom workspace and app setup through the first Contacts API call",
+      "outcome": "The intended terminal is a successful `POST https://api.intercom.io/contacts` for the guide's sample email using the app's token and API version 2.11."
+    },
+    {
+      "slug": "freshworks",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 7,
+      "surface": "Freshworks developer platform first app through local product rendering",
+      "outcome": "The intended terminal is the `common-starter-template` app running through the local FDK server and rendered inside the selected Freshworks product account after `?dev=true` is appended to the account URL."
+    },
+    {
+      "slug": "zoho",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 6,
+      "surface": "Zoho OAuth self client access-token path",
+      "outcome": "A successful Self Client token exchange returns an access token, token type, API domain, and expiration; the authorization-code branch also returns a refresh token."
+    },
+    {
+      "slug": "pipedrive",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 5,
+      "surface": "Pipedrive API-token first request through Postman",
+      "outcome": "An authenticated `GET https://{companydomain}.pipedrive.com/api/v2/deals` request returns HTTP 200 and a JSON body whose `success` field is true, whether the data array contains deals or is empty."
+    },
+    {
+      "slug": "docusign",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 4,
+      "surface": "Docusign eSignature REST API main Node.js Quickstart first run",
+      "outcome": "The intended first success is the preconfigured main Node.js Quickstart running locally, authenticating with Authorization Code Grant, and opening its embedded-signing code example."
+    },
+    {
+      "slug": "dropbox",
+      "status": "blocked",
+      "errors": [],
+      "steps": 4,
+      "sources": 5,
+      "surface": "Dropbox JavaScript SDK generated-token root-folder list",
+      "outcome": "The Node.js `filesListFolder({ path: '' })` call resolves and the example logs the returned `result.entries` array for the account's root folder."
+    },
+    {
+      "slug": "jetbrains",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 7,
+      "sources": 4,
+      "surface": "JetBrains product catalog, with the IntelliJ Platform Plugin SDK first local plugin run as one complete candidate",
+      "outcome": "The wizard-generated Gradle plugin project starts the target IntelliJ Platform IDE in a standalone development instance with the plugin loaded."
+    },
+    {
+      "slug": "jfrog",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 5,
+      "surface": "JFrog Artifactory Cloud first Generic local repository artifact deployment",
+      "outcome": "A developer-controlled file is stored at a chosen path in a newly created Generic local Artifactory repository."
+    },
+    {
+      "slug": "sonatype",
+      "status": "blocked",
+      "errors": [],
+      "steps": 4,
+      "sources": 5,
+      "surface": "Nexus Repository Community Edition first hosted Raw component upload",
+      "outcome": "A file is stored as a component in a newly created Raw hosted repository, and Nexus Repository redirects the user to search results for the uploaded component path."
+    },
+    {
+      "slug": "harness",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 4,
+      "surface": "Harness CI first Cloud build pipeline",
+      "outcome": "A Cloud CI build for a selected Git branch executes the configured Run step containing `echo \"Harness CI is fast\"`."
+    },
+    {
+      "slug": "spacelift",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 7,
+      "surface": "Spacelift Quick Start through the first stack run",
+      "outcome": "The intended terminal is a completed first Spacelift stack run, but the required identity-provider authorization and account-creation convergence are not publicly documented."
+    },
+    {
+      "slug": "canonical",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 12,
+      "sources": 5,
+      "surface": "Ubuntu for Developers, with Python Hello World as one complete candidate",
+      "outcome": "In the Python candidate, the developer runs the published requests-based program inside a virtual environment and sees `Hello, world!` on standard output."
+    },
+    {
+      "slug": "suse",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 4,
+      "surface": "SUSE Documentation, with the Rancher Prime Helm CLI proof of concept as a blocked candidate",
+      "outcome": "The intended candidate terminal is a browser displaying the Rancher user interface, but the public path cannot obtain the required Rancher Prime Helm chart repository URL."
+    },
+    {
+      "slug": "nvidia-developer",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 2,
+      "sources": 7,
+      "surface": "NVIDIA Developer, with the current CUDA Toolkit Ubuntu Debian Installer route retained as an unresolved candidate",
+      "outcome": "The intended CUDA terminal is a successful nbody run on a supported Ubuntu system with a compatible NVIDIA GPU, but the current official installation and sample pages do not form one version-consistent executable path."
+    },
+    {
+      "slug": "esri-developer",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 16,
+      "sources": 4,
+      "surface": "Esri mapping and location services getting started, with an ArcGIS Location Platform and JavaScript map candidate",
+      "outcome": "In the JavaScript candidate, the CodePen application displays the topographic basemap for the Santa Monica Mountains and allows pan and zoom."
+    },
+    {
+      "slug": "smartbear",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 12,
+      "sources": 5,
+      "surface": "SmartBear multi-product developer documentation, with a Swagger Studio first-API candidate",
+      "outcome": "The candidate's sample OpenAPI 3.0 definition is published and its public Swagger Studio URL can be copied and shared."
+    },
+    {
+      "slug": "temporal",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 12,
+      "sources": 3,
+      "surface": "Temporal local Hello World Quickstarts, with a Go and macOS candidate",
+      "outcome": "In the Go candidate, the local Worker processes the Workflow and Activity, the starter prints `Workflow result: Hello Temporal`, and the execution is visible in the local Web UI."
+    },
+    {
+      "slug": "prefect",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 8,
+      "sources": 3,
+      "surface": "Prefect 3 Create your first workflow Quickstart, with an Open Source local candidate",
+      "outcome": "In the Open Source candidate, the quickstart flow runs locally and the terminal provides a link to the execution graph in the local Prefect UI."
+    },
+    {
+      "slug": "dagster",
+      "status": "complete",
+      "errors": [],
+      "steps": 11,
+      "sources": 3,
+      "surface": "Dagster OSS quickstart first local ETL pipeline",
+      "outcome": "The official local project materializes its `processed_data` ETL asset and writes the transformed sample rows, including the new `age_group` column, to `processed_data.csv`."
+    },
+    {
+      "slug": "airbyte",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 9,
+      "sources": 4,
+      "surface": "Airbyte documentation, with the PyAirbyte source-faker first local read as one candidate",
+      "outcome": "PyAirbyte installs the missing Faker source connector, validates it, reads all selected generated-data streams into the result, and iterates over the returned records."
+    },
+    {
+      "slug": "fivetran",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 5,
+      "surface": "Fivetran free account trial first initial connection sync",
+      "outcome": "Fivetran has connected a selected source to a selected destination and completed the connection's initial data sync."
+    },
+    {
+      "slug": "dbt-labs",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 8,
+      "sources": 1,
+      "surface": "dbt Core DuckDB quickstart first successful Jaffle Shop build",
+      "outcome": "dbt Core seeds the sample DuckDB database, creates the Jaffle Shop view and table models, runs the data tests, and completes all 28 nodes without warnings, errors, or skips in the guide's demonstrated terminal."
+    },
+    {
+      "slug": "astronomer",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 3,
+      "surface": "Astro onboarding first deployed and run DAG",
+      "outcome": "An example project is deployed to an Astro Deployment and its first DAG run finishes in the hosted Airflow UI."
+    },
+    {
+      "slug": "camunda",
+      "status": "complete",
+      "errors": [],
+      "steps": 9,
+      "sources": 2,
+      "surface": "Camunda 8 local Rocket Launch first BPMN process",
+      "outcome": "The supplied Rocket Launch BPMN process runs locally to successful completion with the documented `Odyssey` mission and `fuelLevel` of 95."
+    },
+    {
+      "slug": "celonis",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 2,
+      "sources": 5,
+      "surface": "Celonis Platform role-based getting-started routing",
+      "outcome": "A human must choose whether first success means team administration, data integration, app or analysis creation, consuming an existing dashboard or app, or profile management before a chronological route can be researched."
+    },
+    {
+      "slug": "uipath",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 6,
+      "surface": "Studio Web template-guided first workflow run",
+      "outcome": "A project created from a UiPath template runs on the default Automation Cloud Serverless robot and reaches a succeeded run status."
+    },
+    {
+      "slug": "splunk",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 4,
+      "surface": "Splunk Search Tutorial",
+      "outcome": "The intended terminal is the Search app showing automatically returned events from the uploaded tutorial data, but the no-account route cannot be reconstructed through the current post-submit account transition."
+    },
+    {
+      "slug": "dynatrace",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 4,
+      "surface": "Get started with Dynatrace, OneAgent candidate",
+      "outcome": "The intended terminal is a newly monitored host appearing by name in Infrastructure & Operations, then Hosts, but the trial signup and environment transition are not publicly documented."
+    },
+    {
+      "slug": "sumo-logic",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 9,
+      "sources": 4,
+      "surface": "Sumo Logic free-trial activation and Kickstart Data dashboard",
+      "outcome": "A newly activated trial user sees preloaded Kickstart sample data and an application, business, or security dashboard without configuring a collector or ingesting real data."
+    },
+    {
+      "slug": "coralogix",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 7,
+      "surface": "Coralogix organization setup and direct REST API log ingestion",
+      "outcome": "The intended terminal is a log posted to the region-correct `/logs/v1/singles` endpoint appearing in Explore, but the no-account route cannot be connected to the team environment through current public documentation."
+    },
+    {
+      "slug": "better-stack",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 3,
+      "surface": "Better Stack product-surface choice and Uptime first-monitor account boundary",
+      "outcome": "A Better Stack Uptime monitor is running and continuously checking the supplied URL or IP address for an HTTP 2XX success response."
+    },
+    {
+      "slug": "chronosphere",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 2,
+      "sources": 3,
+      "surface": "Chronosphere Observability Platform role-based getting-started routes",
+      "outcome": "A human must choose an administrator or developer objective and provide an organization tenant with the required access and telemetry context before a first-success route can be selected."
+    },
+    {
+      "slug": "rollbar",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 4,
+      "surface": "Rollbar SDK selection and first captured occurrence",
+      "outcome": "The selected Rollbar SDK sends a test error or message from the instrumented application and the resulting item becomes visible in the Rollbar dashboard."
+    },
+    {
+      "slug": "checkly",
+      "status": "blocked",
+      "errors": [],
+      "steps": 3,
+      "sources": 5,
+      "surface": "Checkly Monitoring as Code quickstart with deployed checks",
+      "outcome": "The project's generated or edited checks pass a Checkly cloud test, are deployed, and appear in the dashboard ready for scheduled monitoring."
+    },
+    {
+      "slug": "rootly",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 7,
+      "surface": "Rootly quick start from signup through a first Slack test incident",
+      "outcome": "The intended terminal is a Rootly test incident with a dedicated Slack incident channel, initial system message, and creation event in the timeline, but the no-account route cannot be connected to the Admin-gated Slack installation through current public documentation."
+    },
+    {
+      "slug": "incident-io",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 14,
+      "sources": 4,
+      "surface": "incident.io Slack installation and first declared incident",
+      "outcome": "A first live incident has been declared and incident.io has created its dedicated Slack incident channel and posted the default heads-up in the main incidents channel."
     }
   ]
 }

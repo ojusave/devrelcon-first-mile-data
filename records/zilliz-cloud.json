@@ -1,0 +1,709 @@
+{
+  "platform": {
+    "name": "Zilliz Cloud",
+    "slug": "zilliz-cloud",
+    "organization": "Zilliz Inc."
+  },
+  "category": "Data, databases, and search",
+  "surface": {
+    "name": "Zilliz Cloud free cluster through Python AutoID insert",
+    "selection_basis": "Zilliz offers a no-payment free cluster for basic vector database features. The official Python guides connect with the one-time cluster credential, create an AutoID collection, insert two published records, and print generated IDs as an explicit first write result. The complete path is blocked because after email verification the required first login asks for more information to tailor the service, but official account documentation does not enumerate the full form, required fields, validations, or submission action.",
+    "alternatives_considered": [
+      {
+        "name": "Quickstart to Serving Cluster",
+        "url": "https://docs.zilliz.com/docs/quick-start",
+        "reason_not_primary": "This production-oriented route adds a database, custom schema, indexes, load operation, external object storage, bulk import job, and a later vector search."
+      },
+      {
+        "name": "Basic Vector Search on docs home",
+        "url": "https://docs.zilliz.com/docs/home",
+        "reason_not_primary": "The snippet assumes an existing collection and data; the AutoID guide includes collection creation and an explicit first-insert output."
+      },
+      {
+        "name": "Serverless or Dedicated free trial",
+        "url": "https://docs.zilliz.com/docs/free-trials",
+        "reason_not_primary": "This uses expiring credits and later organization freeze, while the free cluster provides basic features at no cost without payment information."
+      },
+      {
+        "name": "Zilliz CLI quickstart",
+        "url": "https://docs.zilliz.com/reference/cli/cli/Quickstart-quickstart",
+        "reason_not_primary": "This adds CLI installation and browser or device-code authentication, then offers a menu of operations rather than the explicit insert result used here."
+      },
+      {
+        "name": "Google registration",
+        "url": "https://docs.zilliz.com/docs/register-with-zilliz-cloud",
+        "reason_not_primary": "This adds a Google login and the guide tells users to disable Google-managed MFA before linking."
+      },
+      {
+        "name": "GitHub registration",
+        "url": "https://docs.zilliz.com/docs/register-with-zilliz-cloud",
+        "reason_not_primary": "This requires a public GitHub email, GitHub login, and the guide tells users to disable GitHub-managed MFA before linking."
+      },
+      {
+        "name": "Manual primary keys",
+        "url": "https://docs.zilliz.com/docs/primary-field-auto-id#use-manual-ids",
+        "reason_not_primary": "AutoID is recommended when the developer does not need externally managed identifiers and supplies an explicit generated-ID terminal."
+      }
+    ]
+  },
+  "research_status": "blocked",
+  "researched_at": "2026-07-18",
+  "official_docs_only": true,
+  "entry_point": {
+    "developer_intent": "Create a Zilliz Cloud account and free cluster, then use the official Python AutoID quickstart to insert the published book and toy records and receive generated IDs.",
+    "starting_url": "https://docs.zilliz.com/docs/register-with-zilliz-cloud",
+    "assumed_prior_state": [
+      "No Zilliz Cloud account, organization, project, cluster, credential, endpoint, billing instrument, SDK, collection, or data is assumed.",
+      "The developer has a work email address, access to its inbox, and can create a policy-compliant password.",
+      "The developer is authorized to accept the Terms of Service and Privacy Policy.",
+      "The developer can select GCP us-west1 during onboarding so the automatic Default Project can host the documented free cluster example.",
+      "Python and pip are available locally; no installation or service action was executed during research.",
+      "No account, agreement, onboarding response, organization, project, cluster, credential, package, collection, or record was created during research."
+    ]
+  },
+  "documented_first_success": {
+    "official_milestone": "Not established by public official documentation",
+    "normalized_outcome": "No complete Zilliz Cloud first-success outcome can be established because required first-login onboarding fields and transitions remain incompletely documented.",
+    "observable_completion_signal": "The verified account reaches first-login onboarding, but official docs do not enumerate the complete required form, validations, or submission transition.",
+    "boundary_evidence": {
+      "type": "not-established-by-docs",
+      "official_label_or_terminal_state": "The required first-login onboarding transition is not established by public official documentation.",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S9"
+      ]
+    },
+    "why_this_is_the_boundary": "The post-onboarding Python sequence has an explicit `Generated IDs` output for two inserted entities. The end-to-end boundary cannot be established because the required first-login onboarding form is described only as asking for more information, without a complete list of inputs, required controls, validation states, or submission transition.",
+    "source_ids": [
+      "S1",
+      "S2",
+      "S9"
+    ]
+  },
+  "prerequisites": [
+    {
+      "order": 1,
+      "type": "account",
+      "requirement": "A work email address and a password at least eight characters long containing at least three of lowercase, uppercase, numbers, and special characters.",
+      "required": true,
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "order": 2,
+      "type": "legal",
+      "requirement": "Accept the Zilliz Terms of Service and Privacy Policy.",
+      "required": true,
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "order": 3,
+      "type": "verification",
+      "requirement": "Access the signup inbox and enter the confirmation code; Resend Code is the documented missing-code recovery.",
+      "required": true,
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "order": 4,
+      "type": "identity",
+      "requirement": "Provide all information requested on first login. Official docs say more information is required but do not enumerate the complete form; the privacy policy says account data may include name, country, and company.",
+      "required": true,
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "order": 5,
+      "type": "region",
+      "requirement": "Select a cloud region during onboarding; choose GCP us-west1 for the documented free-cluster example because free clusters can currently be created only on GCP.",
+      "required": true,
+      "source_ids": [
+        "S3",
+        "S5"
+      ]
+    },
+    {
+      "order": 6,
+      "type": "configuration",
+      "requirement": "Use the organization created automatically after registration and the automatic `Default Project` created in the selected onboarding region.",
+      "required": true,
+      "source_ids": [
+        "S3",
+        "S10"
+      ]
+    },
+    {
+      "order": 7,
+      "type": "configuration",
+      "requirement": "Create the one-per-organization free cluster and save the one-time username and password credential.",
+      "required": true,
+      "source_ids": [
+        "S4",
+        "S5",
+        "S10"
+      ]
+    },
+    {
+      "order": 8,
+      "type": "software",
+      "requirement": "Have Python and pip to install and run PyMilvus.",
+      "required": true,
+      "source_ids": [
+        "S7"
+      ]
+    }
+  ],
+  "primary_path": [
+    {
+      "step_number": 1,
+      "phase": "arrive",
+      "actor": "developer",
+      "interface": "documentation",
+      "action": "Open Register with Zilliz Cloud and follow its signup link.",
+      "details": [],
+      "input": "https://docs.zilliz.com/docs/register-with-zilliz-cloud",
+      "output": "The Zilliz Cloud signup interface opens.",
+      "success_signal": "Work email and password, Google, and GitHub registration options are documented.",
+      "failure_or_wait": "No navigation failure or recovery behavior is documented.",
+      "required": true,
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "step_number": 2,
+      "phase": "account",
+      "actor": "developer",
+      "interface": "browser",
+      "action": "Enter the work email address and a password meeting the published complexity policy.",
+      "details": [],
+      "input": "Work email and compliant password",
+      "output": "The required account fields are populated.",
+      "success_signal": "The agreement checkbox and Continue action are available.",
+      "failure_or_wait": "The guide says an existing account under the same email can cause registration failure; try logging in, then create a support ticket if the problem persists.",
+      "required": true,
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "step_number": 3,
+      "phase": "account",
+      "actor": "developer",
+      "interface": "browser",
+      "action": "Select `I agree to the Terms of Service and Privacy Policy`, then select Continue.",
+      "details": [],
+      "input": "Agreement acceptance",
+      "output": "Zilliz sends a confirmation code to the work email.",
+      "success_signal": "The confirmation-code dialog is the documented next state.",
+      "failure_or_wait": "No agreement or submission-error recovery is documented beyond the registration FAQ.",
+      "required": true,
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "step_number": 4,
+      "phase": "authenticate",
+      "actor": "developer",
+      "interface": "browser",
+      "action": "Open the message, enter the confirmation code in the dialog, and select Verify.",
+      "details": [],
+      "input": "Confirmation code",
+      "output": "Account registration is verified and first login begins.",
+      "success_signal": "The first-login onboarding interface is reached.",
+      "failure_or_wait": "If the code is not received, select Resend Code; no code expiration or invalid-code procedure is published.",
+      "required": true,
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "step_number": 5,
+      "phase": "access",
+      "actor": "platform",
+      "interface": "browser",
+      "action": "Ask for additional information on the first login to tailor the service.",
+      "details": [],
+      "input": "Unenumerated onboarding information plus a cloud-region choice",
+      "output": "The complete public form contract is not established.",
+      "success_signal": "Official docs say onboarding creates a default project in the selected region, but do not enumerate every preceding field or the submission control.",
+      "failure_or_wait": "The privacy policy says account registration may collect name, email, country, and company, but it does not establish that these are the complete current onboarding inputs or their required states.",
+      "required": true,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ]
+    }
+  ],
+  "candidate_paths": [],
+  "candidate_path_gap": {
+    "reason": "No complete public-doc candidate can be reconstructed from verified registration through the first insert. Signup and email verification are fully enumerated, but required first-login onboarding asks for more information without publishing the complete set of fields, validations, or submission transition. Official sources document the continuation through the automatic organization and Default Project, GCP region, free cluster, one-time credential, PyMilvus, AutoID collection, two inserts, and explicit `Generated IDs` output.",
+    "impact": "The documented free-cluster through generated-ID continuation cannot form an end-to-end first-user candidate without inventing hidden onboarding inputs and transitions.",
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S9",
+      "S10"
+    ]
+  },
+  "branches": [
+    {
+      "at_step": 2,
+      "condition": "Google registration",
+      "path": "Select Google, accept the Zilliz terms and privacy policy, submit, authenticate at Google, and return to a success notification.",
+      "effect_on_first_success": "Replaces work-email password and confirmation code with provider authentication, but the first-login onboarding gap remains.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "at_step": 2,
+      "condition": "GitHub registration",
+      "path": "Make the GitHub email public, select GitHub, accept terms and privacy policy, authenticate at GitHub, and return to a success notification.",
+      "effect_on_first_success": "Adds GitHub profile changes and provider authentication, while the first-login onboarding gap remains.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "at_step": 4,
+      "condition": "Confirmation code not received",
+      "path": "Select Resend Code and wait for a replacement message.",
+      "effect_on_first_success": "Adds an email retry before the same onboarding gate.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "at_step": 5,
+      "condition": "Choose Serverless or Dedicated trial",
+      "path": "Use the $100 work-email trial credit for an eligible cluster instead of the free cluster.",
+      "effect_on_first_success": "Adds deployment choices and a 30-day credit expiry, while the free cluster avoids payment and credit dependence.",
+      "source_ids": [
+        "S4"
+      ]
+    },
+    {
+      "at_step": 5,
+      "condition": "Use Google Cloud region other than us-west1",
+      "path": "Select another currently supported GCP onboarding region and create the free cluster there.",
+      "effect_on_first_success": "Changes the Default Project region and endpoint; free clusters remain GCP-only.",
+      "source_ids": [
+        "S3",
+        "S5"
+      ]
+    },
+    {
+      "at_step": 5,
+      "condition": "Use an API key instead of cluster credentials",
+      "path": "Create an API key with required privileges and use it as the connection token.",
+      "effect_on_first_success": "Adds control-plane credential creation; the one-time cluster username and password already provide the selected route.",
+      "source_ids": [
+        "S6"
+      ]
+    },
+    {
+      "at_step": 5,
+      "condition": "Manual primary IDs",
+      "path": "Disable AutoID, create the published manual-ID schema, include `PROD-001` and `PROD-002` in the two inserts, and print those IDs.",
+      "effect_on_first_success": "Adds responsibility for unique identifiers, while AutoID is recommended for simpler ingestion when external IDs are not needed.",
+      "source_ids": [
+        "S9"
+      ]
+    },
+    {
+      "at_step": 5,
+      "condition": "Continue to vector search",
+      "path": "Use the stored data in a loaded collection and run the documented similarity-search example.",
+      "effect_on_first_success": "Occurs after the first insert already returns generated IDs.",
+      "source_ids": [
+        "S7"
+      ]
+    }
+  ],
+  "friction_gates": [
+    {
+      "at_step": 2,
+      "type": "account",
+      "description": "The developer must keep using the same email, Google, or GitHub method for login unless the method is changed later in account management.",
+      "documented_requirement": true,
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "at_step": 2,
+      "type": "account",
+      "description": "The work-email password needs eight or more characters and three of four published character categories.",
+      "documented_requirement": true,
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "at_step": 4,
+      "type": "verification",
+      "description": "If the confirmation code does not arrive, select Resend Code; no delivery time or code-expiration behavior is published.",
+      "documented_requirement": true,
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "at_step": 5,
+      "type": "access",
+      "description": "The required first-login onboarding requests additional information without a complete public list of fields, validation states, or submit transition.",
+      "documented_requirement": true,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "at_step": 5,
+      "type": "account",
+      "description": "If registration fails because the email may already be registered, try logging in directly; if the issue persists, create a support ticket.",
+      "documented_requirement": true,
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "at_step": 5,
+      "type": "configuration",
+      "description": "The automatic Default Project is created in the onboarding region, and a project region cannot be changed after creation; create a new project to use another region.",
+      "documented_requirement": true,
+      "source_ids": [
+        "S3",
+        "S8"
+      ]
+    },
+    {
+      "at_step": 5,
+      "type": "credential",
+      "description": "The generated cluster username and password are shown only once, so save them while the cluster is being created.",
+      "documented_requirement": true,
+      "source_ids": [
+        "S5"
+      ]
+    },
+    {
+      "at_step": 5,
+      "type": "configuration",
+      "description": "For connection failures, check `Running` status, IP allowlist, endpoint port, TLS, endpoint and token, then test the port; submit a support request if the issue persists.",
+      "documented_requirement": true,
+      "source_ids": [
+        "S8"
+      ]
+    },
+    {
+      "at_step": 5,
+      "type": "limit",
+      "description": "A free cluster is automatically suspended with notice after seven days of inactivity and can be resumed when needed.",
+      "documented_requirement": true,
+      "source_ids": [
+        "S8"
+      ]
+    },
+    {
+      "at_step": 5,
+      "type": "limit",
+      "description": "If free-cluster insert or upsert returns the documented disk-quota-exceeded error, upgrade to Serverless or Dedicated and migrate the data.",
+      "documented_requirement": true,
+      "source_ids": [
+        "S8",
+        "S10"
+      ]
+    }
+  ],
+  "time_to_first_success": {
+    "vendor_claim": false,
+    "value": "not documented",
+    "source_ids": []
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Register with Zilliz Cloud",
+      "url": "https://docs.zilliz.com/docs/register-with-zilliz-cloud",
+      "official_domain": true,
+      "source_type": "account-setup",
+      "accessed_at": "2026-07-18",
+      "last_updated_if_shown": null,
+      "sections_used": [
+        "Registration options",
+        "With work email and password",
+        "Linking to Google account",
+        "Linking to GitHub account",
+        "FAQ"
+      ],
+      "evidence_supported": [
+        "Email and password inputs",
+        "Password policy",
+        "Agreement",
+        "Continue",
+        "Confirmation code",
+        "Verify",
+        "Resend Code",
+        "Unenumerated first-login information",
+        "Provider branches",
+        "Registration-failure recovery"
+      ]
+    },
+    {
+      "id": "S2",
+      "title": "Privacy Policy",
+      "url": "https://zilliz.com/privacy-policy",
+      "official_domain": true,
+      "source_type": "policy",
+      "accessed_at": "2026-07-18",
+      "last_updated_if_shown": "Last updated: July, 2025.",
+      "sections_used": [
+        "Purpose of This Privacy Policy",
+        "Processor and Contact Details",
+        "Account registration",
+        "Company contact details"
+      ],
+      "evidence_supported": [
+        "Zilliz Inc. identity",
+        "Account-data categories including name email country and company",
+        "Authentication provider"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Manage Projects",
+      "url": "https://docs.zilliz.com/docs/manage-projects",
+      "official_domain": true,
+      "source_type": "documentation",
+      "accessed_at": "2026-07-18",
+      "last_updated_if_shown": null,
+      "sections_used": [
+        "Create a project",
+        "Limits"
+      ],
+      "evidence_supported": [
+        "Automatic Enterprise Default Project",
+        "Onboarding region selection",
+        "Project ownership",
+        "Region immutability",
+        "Additional-project branch"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Try Zilliz Cloud For Free",
+      "url": "https://docs.zilliz.com/docs/free-trials",
+      "official_domain": true,
+      "source_type": "pricing",
+      "accessed_at": "2026-07-18",
+      "last_updated_if_shown": null,
+      "sections_used": [
+        "Free cluster",
+        "Free trial",
+        "Use free trial"
+      ],
+      "evidence_supported": [
+        "No payment information",
+        "Free-cluster allowances",
+        "$100 work-email trial",
+        "30-day expiry",
+        "Freeze, recycle-bin, payment, and deletion behavior"
+      ]
+    },
+    {
+      "id": "S5",
+      "title": "Create Cluster",
+      "url": "https://docs.zilliz.com/docs/create-cluster",
+      "official_domain": true,
+      "source_type": "documentation",
+      "accessed_at": "2026-07-18",
+      "last_updated_if_shown": null,
+      "sections_used": [
+        "Prerequisites",
+        "Create a Free cluster",
+        "Create a Serverless cluster"
+      ],
+      "evidence_supported": [
+        "Free-cluster selection",
+        "One per organization",
+        "One-time username and password",
+        "cluster-free example",
+        "Default-project ID need",
+        "gcp-us-west1 example",
+        "GCP-only free cluster",
+        "Running success",
+        "Endpoint and token"
+      ]
+    },
+    {
+      "id": "S6",
+      "title": "Connect to Cluster",
+      "url": "https://docs.zilliz.com/docs/connect-to-cluster",
+      "official_domain": true,
+      "source_type": "documentation",
+      "accessed_at": "2026-07-18",
+      "last_updated_if_shown": null,
+      "sections_used": [
+        "Before you start",
+        "Connect to a cluster"
+      ],
+      "evidence_supported": [
+        "Operational cluster prerequisite",
+        "Public endpoint navigation",
+        "API key or colon-separated cluster credential",
+        "Python MilvusClient initialization"
+      ]
+    },
+    {
+      "id": "S7",
+      "title": "Build with confidence and supercharge your AI applications",
+      "url": "https://docs.zilliz.com/docs/home",
+      "official_domain": true,
+      "source_type": "documentation",
+      "accessed_at": "2026-07-18",
+      "last_updated_if_shown": null,
+      "sections_used": [
+        "For Humans",
+        "Basic Vector Search"
+      ],
+      "evidence_supported": [
+        "pip install pymilvus",
+        "Later basic vector-search continuation",
+        "Endpoint and token pattern"
+      ]
+    },
+    {
+      "id": "S8",
+      "title": "FAQ: Cluster",
+      "url": "https://docs.zilliz.com/docs/faq-cluster",
+      "official_domain": true,
+      "source_type": "troubleshooting",
+      "accessed_at": "2026-07-18",
+      "last_updated_if_shown": null,
+      "sections_used": [
+        "What is the capacity of a free cluster?",
+        "Connection timeout",
+        "Why can’t I connect",
+        "Inactive clusters"
+      ],
+      "evidence_supported": [
+        "Capacity recovery",
+        "TLS and timeout recovery",
+        "Running status",
+        "IP allowlist",
+        "port check",
+        "support escalation",
+        "Seven-day inactivity suspension and resume"
+      ]
+    },
+    {
+      "id": "S9",
+      "title": "Primary Field & AutoID",
+      "url": "https://docs.zilliz.com/docs/primary-field-auto-id",
+      "official_domain": true,
+      "source_type": "quickstart",
+      "accessed_at": "2026-07-18",
+      "last_updated_if_shown": null,
+      "sections_used": [
+        "Choose between AutoID and Manual IDs",
+        "Quickstart: Use AutoID",
+        "Step 1: Create a collection with AutoID",
+        "Step 2: Insert Data",
+        "Use manual IDs"
+      ],
+      "evidence_supported": [
+        "AutoID recommendation",
+        "demo_autoid schema",
+        "Idempotent collection setup",
+        "Two sample rows",
+        "Insert call",
+        "Generated IDs output",
+        "Manual-ID branch"
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "Zilliz Cloud Limits",
+      "url": "https://docs.zilliz.com/docs/limits",
+      "official_domain": true,
+      "source_type": "documentation",
+      "accessed_at": "2026-07-18",
+      "last_updated_if_shown": null,
+      "sections_used": [
+        "Organizations and Projects",
+        "Clusters",
+        "vCUs",
+        "Capacity",
+        "Collections",
+        "Insert and Upsert"
+      ],
+      "evidence_supported": [
+        "Automatic organization",
+        "One free cluster",
+        "5 GB",
+        "2.5 million monthly vCUs",
+        "Five collections",
+        "2 MB per second insert limit",
+        "Quota recovery context"
+      ]
+    }
+  ],
+  "uncertainties": [
+    {
+      "question": "What exact additional fields, option values, validations, and submission action appear on first login?",
+      "impact": "The required onboarding step cannot be counted or reconstructed, so no complete candidate path can be claimed.",
+      "reason_unresolved": "The account guide says more information is requested, and the privacy policy provides data categories rather than an exhaustive current form contract.",
+      "checked_source_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "question": "Which GCP regions are currently offered in the first-login region selector for a new free-cluster user?",
+      "impact": "The automatic Default Project and cluster endpoint location depend on the selection.",
+      "reason_unresolved": "The docs establish region selection and a gcp-us-west1 free-cluster example but direct users to a dynamic region-list operation for current availability.",
+      "checked_source_ids": [
+        "S3",
+        "S5"
+      ]
+    },
+    {
+      "question": "How long does free-cluster provisioning take?",
+      "impact": "The wait before endpoint use is unbounded in the documented path.",
+      "reason_unresolved": "The page defines `Running` as success but gives no duration or timeout recovery.",
+      "checked_source_ids": [
+        "S5"
+      ]
+    },
+    {
+      "question": "What exact generated integer IDs will the AutoID insert return?",
+      "impact": "The values vary, but success remains two IDs in the published output shape.",
+      "reason_unresolved": "The guide labels its IDs as an output example rather than fixed values.",
+      "checked_source_ids": [
+        "S9"
+      ]
+    }
+  ],
+  "excluded_after_success": [
+    "No complete first-success boundary is claimed while required first-login onboarding remains incompletely documented.",
+    "Vector search, filtering, custom schemas, manual IDs, additional collections, databases, import jobs, and model integrations occur after the post-gate first insert.",
+    "Serverless and Dedicated trial clusters, payment methods, additional projects, team invitations, SSO, backups, scaling, and production configuration are outside the selected free-cluster continuation."
+  ]
+}
