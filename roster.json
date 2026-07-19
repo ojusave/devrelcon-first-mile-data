@@ -133,5 +133,17 @@
   {"ordinal":120,"name":"Tiger Data","slug":"tiger-data","category":"Data, databases, and search"},
   {"ordinal":121,"name":"InfluxDB","slug":"influxdb","category":"Data, databases, and search"},
   {"ordinal":122,"name":"TiDB Cloud","slug":"tidb-cloud","category":"Data, databases, and search"},
-  {"ordinal":123,"name":"Weaviate Cloud","slug":"weaviate-cloud","category":"Data, databases, and search"}
+  {"ordinal":123,"name":"Weaviate Cloud","slug":"weaviate-cloud","category":"Data, databases, and search"},
+  {"ordinal":124,"name":"Qdrant Cloud","slug":"qdrant-cloud","category":"Data, databases, and search"},
+  {"ordinal":125,"name":"Zilliz Cloud","slug":"zilliz-cloud","category":"Data, databases, and search"},
+  {"ordinal":126,"name":"Perplexity","slug":"perplexity","category":"AI, ML, and agents"},
+  {"ordinal":127,"name":"GroqCloud","slug":"groqcloud","category":"AI, ML, and agents"},
+  {"ordinal":128,"name":"Together AI","slug":"together-ai","category":"AI, ML, and agents"},
+  {"ordinal":129,"name":"Fireworks AI","slug":"fireworks-ai","category":"AI, ML, and agents"},
+  {"ordinal":130,"name":"Cerebras Inference","slug":"cerebras-inference","category":"AI, ML, and agents"},
+  {"ordinal":131,"name":"ElevenLabs","slug":"elevenlabs","category":"AI, ML, and agents"},
+  {"ordinal":132,"name":"Stability AI","slug":"stability-ai","category":"AI, ML, and agents"},
+  {"ordinal":133,"name":"Weights & Biases","slug":"weights-and-biases","category":"AI, ML, and agents"},
+  {"ordinal":134,"name":"Modal","slug":"modal","category":"AI, ML, and agents"},
+  {"ordinal":135,"name":"AssemblyAI","slug":"assemblyai","category":"AI, ML, and agents"}
 ]

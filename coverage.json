@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-19T05:46:49.561Z",
-  "roster_count": 123,
+  "generated_at": "2026-07-19T06:32:09.748Z",
+  "roster_count": 135,
   "counts": {
-    "needs-human-judgment": 70,
-    "complete": 47,
-    "blocked": 6
+    "needs-human-judgment": 73,
+    "complete": 48,
+    "blocked": 14
   },
   "unexpected_record_files": [],
   "records": [
@@ -1114,6 +1114,114 @@
       "sources": 8,
       "surface": "Weaviate Cloud free cluster through Python Movie collection import",
       "outcome": "No complete Weaviate Cloud first-success outcome can be established because the current account registration form and transitions remain incompletely documented."
+    },
+    {
+      "slug": "qdrant-cloud",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 26,
+      "sources": 9,
+      "surface": "Qdrant Cloud free cluster through Python semantic search with Cloud Inference",
+      "outcome": "The developer loads the official menu-item dataset, embeds it with a free Qdrant Cloud Inference model, and performs the published semantic search for vegetarian dishes."
+    },
+    {
+      "slug": "zilliz-cloud",
+      "status": "blocked",
+      "errors": [],
+      "steps": 5,
+      "sources": 10,
+      "surface": "Zilliz Cloud free cluster through Python AutoID insert",
+      "outcome": "No complete Zilliz Cloud first-success outcome can be established because required first-login onboarding fields and transitions remain incompletely documented."
+    },
+    {
+      "slug": "perplexity",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 12,
+      "sources": 9,
+      "surface": "Perplexity API Quickstart, Python Agent API route",
+      "outcome": "The Python program sends the published low-preset Agent API request and prints its web-grounded response text."
+    },
+    {
+      "slug": "groqcloud",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 5,
+      "surface": "Groq API Quickstart, Python chat-completion route",
+      "outcome": "The intended terminal is the published Python program printing a Groq chat completion, but the public official path cannot be reconstructed through the required account and key gate."
+    },
+    {
+      "slug": "together-ai",
+      "status": "needs-human-judgment",
+      "errors": [],
+      "steps": 24,
+      "sources": 8,
+      "surface": "Together AI general Quickstart, Python serverless chat route",
+      "outcome": "The Python program sends the published MiniMax M3 chat prompt and prints the returned answer."
+    },
+    {
+      "slug": "fireworks-ai",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 9,
+      "surface": "Serverless Quickstart, Fireworks Python SDK route",
+      "outcome": "The intended terminal is the Fireworks Python SDK printing the published DeepSeek V3.1 Spanish-greeting response, but the public official path cannot be reconstructed through signup and dashboard access."
+    },
+    {
+      "slug": "cerebras-inference",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 6,
+      "surface": "Cerebras Inference Quickstart through the first Python chat completion",
+      "outcome": "No complete Cerebras Inference first-success path can be established because required account registration is not publicly enumerated."
+    },
+    {
+      "slug": "elevenlabs",
+      "status": "complete",
+      "errors": [],
+      "steps": 20,
+      "sources": 8,
+      "surface": "ElevenAPI Quickstart through the first Python text-to-speech playback",
+      "outcome": "The developer's Python script sends the published text-to-speech request and audibly plays the returned speech."
+    },
+    {
+      "slug": "stability-ai",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 7,
+      "surface": "Stable Image Core REST v2beta through the first saved lighthouse image",
+      "outcome": "No complete Stability AI first-success path can be established because required Google account authorization and Developer Platform account convergence are not publicly enumerated."
+    },
+    {
+      "slug": "weights-and-biases",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 2,
+      "surface": "W&B Models Quickstart through a first tracked training run",
+      "outcome": "No complete W&B first-success route can be established because the current account-registration form and transitions are not publicly enumerated."
+    },
+    {
+      "slug": "modal",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 3,
+      "surface": "Modal Hello, world! through a first cloud function run",
+      "outcome": "No complete first-user route can be established because the required GitHub or Google identity-provider authorization and return-to-Modal transition are not enumerated by Modal's public documentation."
+    },
+    {
+      "slug": "assemblyai",
+      "status": "blocked",
+      "errors": [],
+      "steps": 2,
+      "sources": 4,
+      "surface": "AssemblyAI Quickstart through a first pre-recorded transcription",
+      "outcome": "No complete first-user route can be established because the required email-registration or Google-authentication transitions after the initial signup choice are not publicly enumerated."
     }
   ]
 }
