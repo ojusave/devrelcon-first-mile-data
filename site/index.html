@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore the documented first-success routes of 205 developer platforms.">
+    <title>First-Mile Atlas | DevRelCon NYC</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to the atlas</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="First-Mile Atlas home">
+        <span class="brand-mark" aria-hidden="true">FM</span>
+        <span>First-Mile Atlas</span>
+      </a>
+      <nav aria-label="DevRelCon resources">
+        <a href="https://devrelcon.onrender.com">Workshop</a>
+        <a href="https://fakesaaspi.onrender.com">Exercise</a>
+        <a href="https://first-mile-scanner.onrender.com">Scanner</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <p class="eyebrow">DEVRELCON NYC 2026 · DOCUMENTATION RESEARCH</p>
+        <h1 id="hero-title">How far is the first mile?</h1>
+        <p class="hero-copy">
+          Explore one complete, official-docs-grounded route to first success for 205 developer platforms.
+        </p>
+        <div class="notice" role="note">
+          <strong>Read this correctly:</strong> this measures documented route complexity, not usability, conversion, or real developer completion time. Estimated minutes are a transparent heuristic, not observed or vendor-reported results.
+        </div>
+      </section>
+
+      <section class="stats" aria-label="Research coverage">
+        <div><strong id="platform-count">205</strong><span>platforms</span></div>
+        <div><strong id="step-count">2,715</strong><span>documented steps</span></div>
+        <div><strong id="source-count">1,121</strong><span>official sources</span></div>
+      </section>
+
+      <section class="explorer" aria-labelledby="explorer-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">THE ATLAS</p>
+            <h2 id="explorer-title">Find a platform</h2>
+          </div>
+          <p id="result-count" class="result-count" aria-live="polite">Loading routes…</p>
+        </div>
+
+        <div class="filters" role="search">
+          <div class="field field--search">
+            <label for="search">Search by platform, outcome, or category</label>
+            <input id="search" type="search" autocomplete="off" placeholder="Try Render, payments, or API call">
+          </div>
+          <div class="field">
+            <label for="category">Category</label>
+            <select id="category">
+              <option value="">All categories</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sort">Sort</label>
+            <select id="sort">
+              <option value="name">Platform name</option>
+              <option value="steps">Fewest steps</option>
+              <option value="friction">Lowest friction score</option>
+              <option value="minutes">Shortest heuristic estimate</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="results" class="results" aria-busy="true">
+          <p class="state-message">Loading the documented routes…</p>
+        </div>
+      </section>
+
+      <section class="method" aria-labelledby="method-title">
+        <p class="eyebrow">BOUNDARIES</p>
+        <h2 id="method-title">What this can tell you</h2>
+        <div class="method-grid">
+          <article>
+            <h3>Documented path</h3>
+            <p>Each record reconstructs a bounded route from arrival to an official first-success milestone using current official documentation.</p>
+          </article>
+          <article>
+            <h3>Visible gates</h3>
+            <p>Steps, credentials, accounts, permissions, payment requirements, installation, waiting, and verification are preserved when the source documents them.</p>
+          </article>
+          <article>
+            <h3>Not a leaderboard</h3>
+            <p>A shorter route is not automatically a better product. Real usability and activation require participant research and behavioral evidence.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="resources" aria-labelledby="resources-title">
+        <p class="eyebrow">WORKSHOP RESOURCES</p>
+        <h2 id="resources-title">Continue the first mile</h2>
+        <div class="resource-list">
+          <article id="fakesaaspi">
+            <div>
+              <p class="resource-number">01</p>
+              <h3>Replay FakeSaaSPI</h3>
+              <p>Try the deliberately frustrating onboarding flow used in the workshop. The participant form stays in the browser; the service receives configured step IDs and lifecycle events for anonymous aggregate progress.</p>
+            </div>
+            <a class="button" href="https://fakesaaspi.onrender.com">Open the exercise</a>
+          </article>
+          <article id="firstmile">
+            <div>
+              <p class="resource-number">02</p>
+              <h3>See Firstmile in action</h3>
+              <p>Firstmile is the position-only instrumentation inside FakeSaaSPI. Its standalone package remains a private beta without a public license; the live projector demonstrates the current data boundary.</p>
+            </div>
+            <a class="button" href="https://fakesaaspi.onrender.com/present">Open the projector</a>
+          </article>
+          <article>
+            <div>
+              <p class="resource-number">03</p>
+              <h3>Map your own journey</h3>
+              <p>Use the experimental First-Mile Scanner to mark the furthest observed stage, the first unresolved transition, and the evidence you need next.</p>
+            </div>
+            <a class="button" href="https://first-mile-scanner.onrender.com">Open the scanner</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built for “What Makes Developers Actually Ship?” at DevRelCon NYC.</p>
+      <p>Search and filters run in this browser. This page does not submit them to an application backend.</p>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
