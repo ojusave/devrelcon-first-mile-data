@@ -1,0 +1,278 @@
+const el = {
+  form: document.querySelector("#search-form"),
+  input: document.querySelector("#search"),
+  suggestions: document.querySelector("#suggestions"),
+  platformCount: document.querySelector("#platform-count"),
+  result: document.querySelector("#result"),
+};
+
+let currentSuggestions = [];
+
+function esc(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function num(value) {
+  return new Intl.NumberFormat("en-US").format(Number(value) || 0);
+}
+
+async function api(path) {
+  const res = await fetch(path);
+  const body = await res.json().catch(() => ({ error: { message: "Bad response" } }));
+  if (!res.ok || body.error) {
+    const message = body.error ? body.error.message : `Request failed (${res.status})`;
+    const err = new Error(message);
+    err.code = body.error && body.error.code;
+    err.status = res.status;
+    throw err;
+  }
+  return body;
+}
+
+function debounce(fn, ms) {
+  let t;
+  return (...args) => {
+    clearTimeout(t);
+    t = setTimeout(() => fn(...args), ms);
+  };
+}
+
+/* ---------- Suggestions ---------- */
+
+function hideSuggestions() {
+  el.suggestions.hidden = true;
+  el.input.setAttribute("aria-expanded", "false");
+}
+
+function renderSuggestions(rows) {
+  currentSuggestions = rows;
+  if (rows.length === 0) {
+    hideSuggestions();
+    return;
+  }
+  el.suggestions.innerHTML = rows
+    .slice(0, 8)
+    .map(
+      (r, i) => `
+      <li class="suggestion" role="option" id="sugg-${i}" data-slug="${esc(r.slug)}" aria-selected="false">
+        <span class="s-name">${esc(r.name)}</span>
+        <span class="s-cat">${esc(r.category)}</span>
+      </li>`,
+    )
+    .join("");
+  el.suggestions.hidden = false;
+  el.input.setAttribute("aria-expanded", "true");
+}
+
+const runSearch = debounce(async (q) => {
+  if (!q) {
+    hideSuggestions();
+    return;
+  }
+  try {
+    const { data } = await api(`/api/search?q=${encodeURIComponent(q)}`);
+    renderSuggestions(data);
+  } catch {
+    hideSuggestions();
+  }
+}, 160);
+
+/* ---------- Rendering an assessment ---------- */
+
+function metricBox(value, label) {
+  return `<div class="metric-box"><span class="m-value">${esc(value)}</span><span class="m-label">${esc(label)}</span></div>`;
+}
+
+function renderAssessment(a) {
+  const prereqs = a.prerequisites.length
+    ? `<div class="chips">${a.prerequisites
+        .map((p) => `<span class="chip ${p.required ? "req" : ""}">${esc(p.type)}${p.required ? " (required)" : ""}</span>`)
+        .join("")}</div>`
+    : '<p class="lede">No prerequisites documented for this route.</p>';
+
+  const gates = a.frictionGates.length
+    ? `<div class="chips">${a.frictionGates.map((g) => `<span class="chip">${esc(g.type)}</span>`).join("")}</div>`
+    : '<p class="lede">No friction gates documented on this route.</p>';
+
+  const time = a.timeToFirstSuccess
+    ? `${esc(a.timeToFirstSuccess.value)} ${a.timeToFirstSuccess.vendorClaim ? "(vendor claim)" : ""}`
+    : "Not documented";
+
+  const sources = a.sources.length
+    ? `<ul class="sources-list">${a.sources
+        .slice(0, 6)
+        .map((s) => `<li><a href="${esc(s.url)}" rel="noreferrer">${esc(s.title)}</a></li>`)
+        .join("")}${a.sources.length > 6 ? `<li>+ ${a.sources.length - 6} more in the record</li>` : ""}</ul>`
+    : '<p class="lede">See the full record for sources.</p>';
+
+  return `
+    <div class="card">
+      <div class="assess-head">
+        <h2>${esc(a.name)}</h2>
+        <span class="pill pill-cat">${esc(a.category)}</span>
+      </div>
+      <p class="lede">${esc(a.outcome)}</p>
+
+      <div class="metrics-grid">
+        ${metricBox(num(a.metrics.developerActions), "Developer actions")}
+        ${metricBox(num(a.metrics.gates), "Friction gates")}
+        ${metricBox(num(a.metrics.platformEvents), "Platform events")}
+        ${metricBox(a.metrics.effortScore, "Effort score (unitless)")}
+        ${metricBox(esc(a.metrics.comparability), "Comparability")}
+      </div>
+
+      <dl class="kv">
+        <div><dt>Selected route</dt><dd>${esc(a.selectedSurface)}</dd></div>
+        <div><dt>Documented first success</dt><dd>${esc(a.firstSuccess.milestone || a.firstSuccess.normalizedOutcome || a.outcome)}</dd></div>
+        <div><dt>Vendor time claim</dt><dd>${time}</dd></div>
+        <div><dt>Prerequisites</dt><dd>${prereqs}</dd></div>
+        <div><dt>Friction gates</dt><dd>${gates}</dd></div>
+        <div><dt>Documented path length</dt><dd>${num(a.pathStepCount)} steps, ${num(a.sourceCount)} official sources</dd></div>
+        <div><dt>Sources</dt><dd>${sources}</dd></div>
+      </dl>
+
+      <p class="dist-line"><a href="${esc(a.recordUrl)}" rel="noreferrer">Open the full evidence record (JSON)</a></p>
+      <p class="dist-line">${esc(a.note)}</p>
+    </div>`;
+}
+
+function distLine(label, d) {
+  return `<p class="dist-line"><strong>${esc(label)}:</strong> ${num(d.value)} vs category median ${num(d.categoryMedian)}. ${num(d.lowerCount)} peers document fewer, ${num(d.higherCount)} document more.</p>`;
+}
+
+function renderComparison(c) {
+  if (c.peerCount === 0) {
+    return `<div class="card"><h2>Category context</h2><p class="lede">No other platforms in "${esc(c.category)}" yet.</p></div>`;
+  }
+  const rows = c.peers
+    .map(
+      (p) => `
+      <tr>
+        <td><a href="#" data-slug="${esc(p.slug)}" class="peer-link">${esc(p.name)}</a></td>
+        <td>${num(p.developerActions)}</td>
+        <td>${num(p.gates)}</td>
+        <td>${p.effortScore}</td>
+        <td><span class="tag ${p.comparability === "not-comparable" ? "not-comparable" : ""}">${esc(p.comparability)}</span></td>
+      </tr>`,
+    )
+    .join("");
+
+  return `
+    <div class="card">
+      <div class="assess-head">
+        <h2>Category context: ${esc(c.category)}</h2>
+        <span class="pill">${num(c.comparablePeerCount)} comparable peers</span>
+      </div>
+      ${distLine("Developer actions", c.distribution.developerActions)}
+      ${distLine("Friction gates", c.distribution.gates)}
+      ${distLine("Effort score", c.distribution.effortScore)}
+      <table class="compare-table">
+        <thead>
+          <tr><th>Platform</th><th>Dev actions</th><th>Gates</th><th>Effort</th><th>Comparability</th></tr>
+        </thead>
+        <tbody>
+          <tr class="self"><td>${esc(c.platform.name)}</td><td>${num(c.distribution.developerActions.value)}</td><td>${num(c.distribution.gates.value)}</td><td>${c.distribution.effortScore.value}</td><td>this platform</td></tr>
+          ${rows}
+        </tbody>
+      </table>
+      <p class="dist-line">${esc(c.comparabilityNote)}</p>
+    </div>`;
+}
+
+async function showPlatform(slug) {
+  hideSuggestions();
+  el.result.hidden = false;
+  el.result.innerHTML = '<div class="state-message">Loading assessment…</div>';
+  el.result.scrollIntoView({ behavior: "smooth", block: "start" });
+  try {
+    const [assessment, comparison] = await Promise.all([
+      api(`/api/platforms/${encodeURIComponent(slug)}`),
+      api(`/api/compare?slug=${encodeURIComponent(slug)}`),
+    ]);
+    el.result.innerHTML = renderAssessment(assessment.data) + renderComparison(comparison.data);
+  } catch (err) {
+    el.result.innerHTML = `<div class="state-message"><strong>Could not load that platform.</strong><br>${esc(err.message)}</div>`;
+  }
+}
+
+function renderUnknown(query) {
+  el.result.hidden = false;
+  el.result.innerHTML = `
+    <div class="card unknown-panel">
+      <h2>"${esc(query)}" isn't in the dataset yet</h2>
+      <p class="lede">This platform hasn't been researched into the Atlas. Live research for unknown platforms, with a source-grounded record and a draft pull request back to the dataset, is coming in Phase 2.</p>
+      <button class="btn btn-primary" id="research-btn" type="button">Request research</button>
+      <p class="dist-line" id="research-status"></p>
+    </div>`;
+  document.querySelector("#research-btn").addEventListener("click", async () => {
+    const status = document.querySelector("#research-status");
+    status.textContent = "Checking…";
+    try {
+      const res = await fetch("/api/research", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ platform: query }),
+      });
+      const body = await res.json().catch(() => ({}));
+      status.textContent = body.error ? body.error.message : "Request received.";
+    } catch {
+      status.textContent = "Could not reach the research service right now.";
+    }
+  });
+  el.result.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+async function submitQuery(q) {
+  const query = q.trim();
+  if (!query) return;
+  try {
+    const { data } = await api(`/api/search?q=${encodeURIComponent(query)}`);
+    const exact = data.find((r) => r.name.toLowerCase() === query.toLowerCase());
+    if (exact) return showPlatform(exact.slug);
+    if (data.length > 0) return showPlatform(data[0].slug);
+    renderUnknown(query);
+  } catch (err) {
+    el.result.hidden = false;
+    el.result.innerHTML = `<div class="state-message">${esc(err.message)}</div>`;
+  }
+}
+
+/* ---------- Events ---------- */
+
+el.input.addEventListener("input", (e) => runSearch(e.target.value));
+el.input.addEventListener("blur", () => setTimeout(hideSuggestions, 150));
+
+el.suggestions.addEventListener("click", (e) => {
+  const li = e.target.closest(".suggestion");
+  if (li) showPlatform(li.dataset.slug);
+});
+
+el.form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  submitQuery(el.input.value);
+});
+
+el.result.addEventListener("click", (e) => {
+  const link = e.target.closest(".peer-link");
+  if (link) {
+    e.preventDefault();
+    el.input.value = "";
+    showPlatform(link.dataset.slug);
+  }
+});
+
+async function init() {
+  try {
+    const { data } = await api("/api/meta");
+    el.platformCount.textContent = num(data.count);
+  } catch {
+    /* leave the static fallback count */
+  }
+}
+
+init();

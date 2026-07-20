@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: first-mile-atlas
+    runtime: node
+    plan: starter
+    region: oregon
+    buildCommand: npm ci && npm run build:data && npm run build:app
+    startCommand: node dist/server.js
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Phase 2 (set in the dashboard, not committed):
+      # - key: RESEARCH_ENABLED
+      #   value: "true"
+      # - key: OPENROUTER_API_KEY
+      #   sync: false
+      # - key: EXA_API_KEY
+      #   sync: false
+      # - key: GITHUB_TOKEN
+      #   sync: false
+# Phase 2 also adds a Render Key Value instance and a Render Workflow.
+# Workflows cannot be created via Blueprint yet, so they are registered separately.

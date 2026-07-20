@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>First-Mile Atlas: documented developer onboarding, measured</title>
+    <meta
+      name="description"
+      content="Look up any developer platform and see its documented first-mile onboarding path and honest, category-scoped comparison. Source-grounded, not a ranking."
+    />
+    <link rel="icon" href="https://render.com/favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="First-Mile Atlas home">
+        <span class="brand-mark" aria-hidden="true">FM</span>
+        <span>First-Mile Atlas</span>
+      </a>
+      <div class="header-actions">
+        <a class="link-muted" href="https://github.com/ojusave/devrelcon-first-mile-data">GitHub</a>
+        <a
+          class="btn btn-ghost"
+          href="https://dashboard.render.com/register?utm_source=github&utm_medium=referral&utm_campaign=ojus_demos&utm_content=navbar_button"
+          >Sign up on Render</a
+        >
+        <a
+          class="btn btn-primary"
+          href="https://render.com/deploy?repo=https://github.com/ojusave/devrelcon-first-mile-data"
+          >Deploy to Render</a
+        >
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <p class="eyebrow">DOCUMENTED ONBOARDING RESEARCH</p>
+        <h1>How far is your first mile?</h1>
+        <p class="hero-copy">
+          Enter a developer platform to see the complete, official-docs-grounded route to its first
+          documented success, and how that route sits next to others in its category.
+        </p>
+
+        <form id="search-form" class="search" role="search" autocomplete="off">
+          <label class="visually-hidden" for="search">Enter a platform or company name</label>
+          <input
+            id="search"
+            type="search"
+            placeholder="Try Render, Stripe, Supabase, Twilio…"
+            aria-describedby="search-hint"
+            aria-expanded="false"
+            aria-controls="suggestions"
+            role="combobox"
+          />
+          <button type="submit" class="btn btn-primary">Assess</button>
+          <ul id="suggestions" class="suggestions" role="listbox" hidden></ul>
+        </form>
+        <p id="search-hint" class="search-hint">
+          <span id="platform-count">205</span> platforms measured. Search by name, outcome, or category.
+        </p>
+
+        <div class="notice" role="note">
+          <strong>Read this correctly:</strong> this describes documented route shape, not usability,
+          conversion, or real completion time. The effort score is a unitless heuristic over normalized
+          counts, not minutes and not a vendor claim. Routes are only conditionally comparable; this is
+          not a ranking.
+        </div>
+      </section>
+
+      <section id="result" class="result-panel" aria-live="polite" hidden></section>
+
+      <section class="method">
+        <p class="eyebrow">WHAT THIS TELLS YOU</p>
+        <div class="method-grid">
+          <article>
+            <h3>Documented path</h3>
+            <p>Each assessment reconstructs a bounded route from arrival to an official first-success milestone using current official documentation.</p>
+          </article>
+          <article>
+            <h3>Visible gates</h3>
+            <p>Accounts, credentials, payment requirements, installs, waits, and verification are preserved when the source documents them.</p>
+          </article>
+          <article>
+            <h3>Not a leaderboard</h3>
+            <p>A shorter route is not a better product. Comparison shows documented-route shape within a category, with comparability flags.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Source-grounded reconstructions of first-mile developer journeys across developer platforms.</p>
+      <p class="footer-links">
+        <a href="https://github.com/ojusave/devrelcon-first-mile-data">GitHub repository</a>
+        <a href="/llms.txt">LLM guide</a>
+        <a href="/data/index.json">Data manifest</a>
+        <a href="/measurement-contract.md">Measurement contract</a>
+        <a
+          href="https://dashboard.render.com/register?utm_source=github&utm_medium=referral&utm_campaign=ojus_demos&utm_content=footer_link"
+          >Sign up on Render</a
+        >
+      </p>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
