@@ -71,6 +71,13 @@ function dist(values) {
 function reproducibility() {
   const results = [];
   const check = (label, gen, file, ignoreKeys = []) => {
+    // Defensive: this script documents the pre-repair baseline. Some artifacts
+    // referenced by the original baseline (easiest-path.json) were removed by the
+    // repair, so skip anything that no longer exists rather than crashing.
+    if (!fs.existsSync(path.join(ROOT, file))) {
+      results.push({ label, file, identical: null, note: "artifact removed after baseline" });
+      return;
+    }
     const before = fs.readFileSync(path.join(ROOT, file), "utf8");
     try { execSync(gen, { cwd: ROOT, stdio: "ignore" }); } catch { /* ignore */ }
     let after = fs.readFileSync(path.join(ROOT, file), "utf8");
@@ -90,9 +97,10 @@ function reproducibility() {
   return results;
 }
 
-const ep = JSON.parse(fs.readFileSync(path.join(ROOT, "easiest-path.json"), "utf8"));
-const epRecordRows = ep.rows.filter((r) => r.source === "record").length;
-const epResearchRows = ep.rows.filter((r) => r.source === "re-research").length;
+const epPath = path.join(ROOT, "easiest-path.json");
+const ep = fs.existsSync(epPath) ? JSON.parse(fs.readFileSync(epPath, "utf8")) : null;
+const epRecordRows = ep ? ep.rows.filter((r) => r.source === "record").length : 0;
+const epResearchRows = ep ? ep.rows.filter((r) => r.source === "re-research").length : 0;
 
 const canonical = rows.filter((r) => !r.reResearched);
 const reres = rows.filter((r) => r.reResearched);
@@ -213,7 +221,8 @@ for (const r of repro) {
   const note = r.file === "easiest-path.json"
     ? `identical ignoring \`generated_at\`; but source split is **${epRecordRows} records / ${epResearchRows} re-research**, not the 136/69 the script header claims`
     : (r.file === "coverage.json" ? "identical ignoring `generated_at` (wall-clock, non-deterministic)" : "byte-identical");
-  P(`| \`${r.file}\` | ${r.identical ? "yes" : "**no**"} | ${note} |`);
+  const cell = r.identical === null ? `n/a (${r.note})` : (r.identical ? "yes" : "**no**");
+  P(`| \`${r.file}\` | ${cell} | ${note} |`);
 }
 P();
 P("### Reproducibility findings");
