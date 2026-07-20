@@ -48,7 +48,7 @@
     ]
   },
   "documented_first_success": {
-    "official_milestone": "No single first-Worker terminal path is selected by the official Workers getting-started router.",
+    "official_milestone": "The Workers CLI getting-started guide ends when the deployed Worker's public workers.dev endpoint returns Hello Worker!.",
     "normalized_outcome": "The public workers.dev endpoint returns Hello Worker!.",
     "observable_completion_signal": "The public workers.dev endpoint returns Hello Worker!.",
     "boundary_evidence": {

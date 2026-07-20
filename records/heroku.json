@@ -38,7 +38,7 @@
     ]
   },
   "documented_first_success": {
-    "official_milestone": "No single Heroku getting-started path is selected by the official router.",
+    "official_milestone": "The Heroku Node.js getting-started guide ends when the deployed official sample site loads at its herokuapp.com URL.",
     "normalized_outcome": "The official sample site loads at its `herokuapp.com` URL.",
     "observable_completion_signal": "The official sample site loads at its `herokuapp.com` URL.",
     "boundary_evidence": {

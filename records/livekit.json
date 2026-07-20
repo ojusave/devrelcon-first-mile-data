@@ -38,9 +38,9 @@
     ]
   },
   "documented_first_success": {
-    "official_milestone": "Not established end to end by public official documentation",
-    "normalized_outcome": "The Voice AI quickstart cannot be reconstructed from a no-account state because the public Cloud login page exposes identity choices but not the email-link or identity-provider completion states that lead to an account and free project.",
-    "observable_completion_signal": "The Cloud page offers Continue with Google, Continue with GitHub, Continue with SSO, and Continue with email under Request a link to sign in or sign up, then requires an unenumerated continuation.",
+    "official_milestone": "The Voice AI quickstart ends when the browser Agent Console session starts and the running starter agent responds in realtime to spoken input.",
+    "normalized_outcome": "Sign up (one opaque step), create a free project, run the CLI starter agent, open the browser Agent Console, and speak to it.",
+    "observable_completion_signal": "The browser Agent Console starts a session and the running starter agent responds in realtime to spoken input.",
     "boundary_evidence": {
       "type": "demonstrated-terminal-state",
       "official_label_or_terminal_state": "The browser Agent Console starts a session and the running starter agent responds in realtime to spoken input.",

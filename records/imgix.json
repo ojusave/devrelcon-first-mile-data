@@ -39,9 +39,9 @@
     ]
   },
   "documented_first_success": {
-    "official_milestone": "Not established end to end by public official documentation",
-    "normalized_outcome": "No complete first-user Imgix path can be established because the account-creation application hides the required registration and dashboard-convergence transitions.",
-    "observable_completion_signal": "The public signup endpoint renders only a loading shell; it does not expose the account fields, identity alternatives, verification steps, legal acceptance, submission result, or dashboard arrival.",
+    "official_milestone": "The 10 Minutes to Serving Quick Start ends when the browser displays the source asset served through the Imgix domain.",
+    "normalized_outcome": "Sign up (one opaque step), create and deploy a Source, then open the Imgix asset URL to serve the first asset.",
+    "observable_completion_signal": "The browser displays the source asset at https://your_domain.imgix.net/path-to-your-asset.",
     "boundary_evidence": {
       "type": "demonstrated-terminal-state",
       "official_label_or_terminal_state": "The browser displays the source asset at `https://your_domain.imgix.net/path-to-your-asset`.",

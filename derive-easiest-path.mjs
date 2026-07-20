@@ -143,7 +143,12 @@ rows.sort((a, b) => (a.est_minutes ?? 1e9) - (b.est_minutes ?? 1e9) || a.name.lo
 const covered = rows.filter((r) => !r.needs_research);
 const out = {
   generated_at: new Date().toISOString(),
-  description: "Easiest documented route to first success per platform, scored by steps, friction, and estimated time.",
+  description: "DERIVED HEURISTIC, NOT MEASURED DATA. Exploration aid only. est_minutes is a synthetic estimate computed from per-step phase weights, NOT an observed time-to-success and NOT a vendor claim. Do not treat this file as ground truth or a ranking; the canonical source is records/*.json. Regenerating it does not make it measured.",
+  caveats: [
+    "est_minutes and friction_score are model outputs, not observations. Trust the ordering more than any absolute number.",
+    "Selection-policy bias: SELECTION-POLICY.md prefers local/no-account/playground routes when offered, which makes those platforms look easier than cloud-signup routes. That is a confound for analysis, not a finding about the platform.",
+    "For label integrity and per-record filter flags, use ds-quality.json rather than this file.",
+  ],
   model: {
     est_minutes: "sum of per-step base minutes by phase + per-flag extras; a heuristic estimate, not a vendor claim",
     base_minutes_by_phase: BASE_MIN,

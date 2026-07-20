@@ -21,6 +21,24 @@ const allowedStatuses = new Set(["complete", "blocked", "needs-human-judgment"])
 const sourcePattern = /^S[1-9][0-9]*$/;
 const datePattern = /^\d{4}-\d{2}-\d{2}$/;
 
+// A complete record must describe the selected route's affirmative terminal. These
+// patterns catch leftover blocked / needs-human-judgment phrasing in success labels
+// (and the selected surface name) so a resolved record cannot read like an unresolved one.
+const blockedSuccessPhrases = [
+  /not established/i,
+  /no single[^.]*\bmilestone\b/i,
+  /no\s+\S*(?:-wide|-level)\b[^.]*\bmilestone\b/i,
+  /no\s+(?:platform-wide|cross-product|cross-platform|cross-scenario)[^.]*\b(?:milestone|first[- ]?success|completion signal)\b/i,
+  /cannot be (?:reconstructed|established)/i,
+  /human selection[^.]*required/i,
+  /human[- ]judgment/i,
+  /needs-human-judgment/i,
+  /\bunresolved\b/i,
+  /no complete first[- ]?user (?:route|path)/i,
+  /required before a documented first[- ]?success/i,
+  /do(?:es)? not establish the complete/i,
+];
+
 function asArray(value) {
   return Array.isArray(value) ? value : [];
 }
@@ -169,6 +187,22 @@ function validateRecord(entry, file) {
   }
   if (!Array.isArray(success.boundary_evidence?.source_ids) || success.boundary_evidence.source_ids.length === 0) {
     errors.push("Documented success boundary has no source IDs");
+  }
+  if (record.research_status === "complete") {
+    const affirmativeFields = [
+      ["documented_first_success.official_milestone", success.official_milestone],
+      ["documented_first_success.normalized_outcome", success.normalized_outcome],
+      ["documented_first_success.observable_completion_signal", success.observable_completion_signal],
+      ["documented_first_success.why_this_is_the_boundary", success.why_this_is_the_boundary],
+      ["surface.name", record.surface?.name],
+    ];
+    for (const [fieldName, text] of affirmativeFields) {
+      if (typeof text !== "string") continue;
+      const offending = blockedSuccessPhrases.find((pattern) => pattern.test(text));
+      if (offending) {
+        errors.push(`Complete record ${fieldName} uses blocked/needs-human-judgment phrasing (${offending}); describe the selected route's affirmative terminal instead`);
+      }
+    }
   }
 
   for (const key of ["prerequisites", "primary_path", "candidate_paths", "branches", "friction_gates", "sources", "uncertainties", "excluded_after_success"]) {

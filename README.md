@@ -65,6 +65,8 @@ than choosing silently.
 - `records/`: one canonical JSON record per platform.
 - `catalog.md`: generated human-readable index after integration.
 - `coverage.json`: generated validation and completion report.
+- `ds-quality.json`: generated per-record quality and shape flags for downstream analysis (see below).
+- `easiest-path.json`: generated derived heuristic for exploration only (see below); not measured data.
 
 ## Route selection policy
 
@@ -79,3 +81,41 @@ A platform record is complete only when its full bounded path is reconstructed
 from inspected official sources and every evidence-bearing field is attributable.
 Passing the schema is necessary but not sufficient; the parent also reviews
 source coverage and representative paths cold.
+
+## What `complete` means (and what it does not)
+
+Under the current workshop policy, `complete` means one committed documented
+route was reconstructed all the way to a terminal first success, with sources on
+every step. See `SELECTION-POLICY.md` for how that route is chosen.
+
+`complete` does not mean:
+
+- every signup or OAuth field is publicly enumerated. When a form is opaque, the
+  path records a single opaque signup step and the details live in
+  `uncertainties`, not in the success labels.
+- the vendor named one canonical platform-wide path. When docs leave peer routes
+  open, the platform-level ambiguity is recorded in `surface.selection_basis`,
+  `surface.alternatives_considered`, and `uncertainties`.
+
+Because of this, `documented_first_success` on a complete record always describes
+the selected route's affirmative terminal. `validate-records.mjs` fails any
+complete record whose success labels still read like a blocked or
+`needs-human-judgment` state (for example "not established", "no single
+milestone", "requires human selection").
+
+## Downstream analysis honesty
+
+This repo is data plus validation. Two generated files support analysis but must
+not be mistaken for measured truth:
+
+- `ds-quality.json` (run `node gen-ds-quality.mjs --write`): machine-readable
+  filter flags per record for notebooks, such as `step_count`, `gate_count`,
+  `uncertainty_count`, `has_opaque_signup_language`, `thin_path`,
+  `local_or_playground_route`, `candidate_paths_count`, and
+  `contradictory_success_labels` (which stays as a guardrail and should read
+  `false` for every record). These are shape and integrity flags, not a ranking.
+- `easiest-path.json` (run `node derive-easiest-path.mjs`): a derived heuristic
+  for exploration only. Its `est_minutes` is a synthetic score from per-step
+  phase weights, not an observed time-to-success and not a vendor claim. The
+  selection policy prefers local/no-account routes when offered, which biases
+  those estimates downward: treat that as a confound, not a finding.

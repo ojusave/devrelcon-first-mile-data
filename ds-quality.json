@@ -1,0 +1,3167 @@
+{
+  "generated_at": "2026-07-20T05:41:10.215Z",
+  "purpose": "Filter flags for downstream data science; not a ranking and not a measure of developer experience. Flags describe record shape and label integrity so notebooks can include or exclude records deliberately.",
+  "flag_definitions": {
+    "step_count": "Number of steps on the reconstructed primary_path.",
+    "gate_count": "Number of friction_gates recorded on the primary path.",
+    "uncertainty_count": "Number of recorded uncertainties.",
+    "has_opaque_signup_language": "The path or uncertainties note an opaque signup/OAuth step or fields not publicly enumerated.",
+    "contradictory_success_labels": "Success labels still read like a blocked/needs-human-judgment record (should be false for all complete records).",
+    "thin_path": "primary_path has <= 4 steps.",
+    "local_or_playground_route": "Selected route looks local/no-account (playground, localhost, Docker, OSS). Selection policy prefers these, which biases est_minutes downward: a confound, not a finding.",
+    "candidate_paths_count": "Number of enumerated alternative candidate_paths (often 0; do not mass-invent peers)."
+  },
+  "summary": {
+    "total": 205,
+    "contradictory_success_labels": 0,
+    "has_opaque_signup_language": 64,
+    "thin_path": 6,
+    "local_or_playground_route": 86,
+    "no_candidate_paths": 203
+  },
+  "missing_records": [],
+  "records": [
+    {
+      "slug": "google-cloud-platform",
+      "research_status": "complete",
+      "step_count": 15,
+      "gate_count": 4,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "render",
+      "research_status": "complete",
+      "step_count": 25,
+      "gate_count": 12,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "amazon-web-services",
+      "research_status": "complete",
+      "step_count": 20,
+      "gate_count": 6,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "microsoft-azure",
+      "research_status": "complete",
+      "step_count": 14,
+      "gate_count": 7,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "ibm-cloud",
+      "research_status": "complete",
+      "step_count": 14,
+      "gate_count": 4,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "oracle-cloud-infrastructure",
+      "research_status": "complete",
+      "step_count": 25,
+      "gate_count": 5,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "cloudflare",
+      "research_status": "complete",
+      "step_count": 21,
+      "gate_count": 9,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "vercel",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 5,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "heroku",
+      "research_status": "complete",
+      "step_count": 11,
+      "gate_count": 9,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "red-hat-openshift",
+      "research_status": "complete",
+      "step_count": 14,
+      "gate_count": 6,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "elastic",
+      "research_status": "complete",
+      "step_count": 10,
+      "gate_count": 2,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "mongodb",
+      "research_status": "complete",
+      "step_count": 8,
+      "gate_count": 5,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "supabase",
+      "research_status": "complete",
+      "step_count": 13,
+      "gate_count": 6,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "neon",
+      "research_status": "complete",
+      "step_count": 28,
+      "gate_count": 9,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "planetscale",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 6,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "snowflake",
+      "research_status": "complete",
+      "step_count": 18,
+      "gate_count": 7,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "databricks",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 4,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "confluent",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 6,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "redis",
+      "research_status": "complete",
+      "step_count": 13,
+      "gate_count": 5,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "cockroachdb",
+      "research_status": "complete",
+      "step_count": 25,
+      "gate_count": 8,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "openai",
+      "research_status": "complete",
+      "step_count": 5,
+      "gate_count": 3,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "exa",
+      "research_status": "complete",
+      "step_count": 8,
+      "gate_count": 6,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "langchain",
+      "research_status": "complete",
+      "step_count": 11,
+      "gate_count": 4,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "arize-ai",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 6,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "anthropic",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 6,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "mistral-ai",
+      "research_status": "complete",
+      "step_count": 10,
+      "gate_count": 4,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "hugging-face",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 3,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "replicate",
+      "research_status": "complete",
+      "step_count": 14,
+      "gate_count": 5,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "cohere",
+      "research_status": "complete",
+      "step_count": 10,
+      "gate_count": 5,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "pinecone",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 6,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "zoom",
+      "research_status": "complete",
+      "step_count": 23,
+      "gate_count": 10,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "twilio",
+      "research_status": "complete",
+      "step_count": 20,
+      "gate_count": 7,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "slack",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 3,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "x-developer-platform",
+      "research_status": "complete",
+      "step_count": 11,
+      "gate_count": 6,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "discord",
+      "research_status": "complete",
+      "step_count": 32,
+      "gate_count": 8,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "vonage",
+      "research_status": "complete",
+      "step_count": 10,
+      "gate_count": 4,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "resend",
+      "research_status": "complete",
+      "step_count": 18,
+      "gate_count": 6,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "daily",
+      "research_status": "complete",
+      "step_count": 11,
+      "gate_count": 5,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "mux",
+      "research_status": "complete",
+      "step_count": 5,
+      "gate_count": 4,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "stream",
+      "research_status": "complete",
+      "step_count": 12,
+      "gate_count": 9,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "okta",
+      "research_status": "complete",
+      "step_count": 26,
+      "gate_count": 8,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "tailscale",
+      "research_status": "complete",
+      "step_count": 5,
+      "gate_count": 4,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "auth0",
+      "research_status": "complete",
+      "step_count": 18,
+      "gate_count": 8,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "microsoft-entra-id",
+      "research_status": "complete",
+      "step_count": 13,
+      "gate_count": 5,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "clerk",
+      "research_status": "complete",
+      "step_count": 15,
+      "gate_count": 7,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "workos",
+      "research_status": "complete",
+      "step_count": 11,
+      "gate_count": 7,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "hashicorp-vault",
+      "research_status": "complete",
+      "step_count": 11,
+      "gate_count": 5,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "snyk",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 6,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "1password-developer",
+      "research_status": "complete",
+      "step_count": 21,
+      "gate_count": 11,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "keycloak",
+      "research_status": "complete",
+      "step_count": 34,
+      "gate_count": 7,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "stripe",
+      "research_status": "complete",
+      "step_count": 11,
+      "gate_count": 5,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "plaid",
+      "research_status": "complete",
+      "step_count": 21,
+      "gate_count": 8,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "paypal",
+      "research_status": "complete",
+      "step_count": 10,
+      "gate_count": 7,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "square",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 4,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "adyen",
+      "research_status": "complete",
+      "step_count": 15,
+      "gate_count": 13,
+      "uncertainty_count": 5,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "authorize-net",
+      "research_status": "complete",
+      "step_count": 23,
+      "gate_count": 9,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "shopify",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 6,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "intuit-quickbooks",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 8,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "coinbase-developer-platform",
+      "research_status": "complete",
+      "step_count": 15,
+      "gate_count": 9,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "wise-platform",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 8,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "salesforce",
+      "research_status": "complete",
+      "step_count": 18,
+      "gate_count": 11,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "hubspot",
+      "research_status": "complete",
+      "step_count": 30,
+      "gate_count": 10,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "atlassian",
+      "research_status": "complete",
+      "step_count": 13,
+      "gate_count": 5,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "servicenow",
+      "research_status": "complete",
+      "step_count": 19,
+      "gate_count": 11,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "sap-business-technology-platform",
+      "research_status": "complete",
+      "step_count": 15,
+      "gate_count": 10,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "microsoft-dynamics-365",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 6,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "adobe-experience-platform",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 6,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "workday",
+      "research_status": "complete",
+      "step_count": 15,
+      "gate_count": 10,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "box",
+      "research_status": "complete",
+      "step_count": 5,
+      "gate_count": 5,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "boomi",
+      "research_status": "complete",
+      "step_count": 23,
+      "gate_count": 6,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "kong",
+      "research_status": "complete",
+      "step_count": 15,
+      "gate_count": 9,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "coderabbit",
+      "research_status": "complete",
+      "step_count": 5,
+      "gate_count": 6,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "github",
+      "research_status": "complete",
+      "step_count": 10,
+      "gate_count": 5,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "gitlab",
+      "research_status": "complete",
+      "step_count": 32,
+      "gate_count": 10,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "postman",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 5,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "docker",
+      "research_status": "complete",
+      "step_count": 10,
+      "gate_count": 7,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "terraform",
+      "research_status": "complete",
+      "step_count": 16,
+      "gate_count": 8,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "pulumi",
+      "research_status": "complete",
+      "step_count": 11,
+      "gate_count": 6,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "circleci",
+      "research_status": "complete",
+      "step_count": 16,
+      "gate_count": 6,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "buildkite",
+      "research_status": "complete",
+      "step_count": 13,
+      "gate_count": 6,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "launchdarkly",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 7,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "sentry",
+      "research_status": "complete",
+      "step_count": 18,
+      "gate_count": 6,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "datadog",
+      "research_status": "complete",
+      "step_count": 16,
+      "gate_count": 11,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "grafana-cloud",
+      "research_status": "complete",
+      "step_count": 11,
+      "gate_count": 7,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "new-relic",
+      "research_status": "complete",
+      "step_count": 12,
+      "gate_count": 7,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "honeycomb",
+      "research_status": "complete",
+      "step_count": 24,
+      "gate_count": 9,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "posthog",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 6,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "pagerduty",
+      "research_status": "complete",
+      "step_count": 18,
+      "gate_count": 9,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "browserstack",
+      "research_status": "complete",
+      "step_count": 24,
+      "gate_count": 11,
+      "uncertainty_count": 5,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "sauce-labs",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 7,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "django",
+      "research_status": "complete",
+      "step_count": 11,
+      "gate_count": 4,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "spring-boot",
+      "research_status": "complete",
+      "step_count": 18,
+      "gate_count": 5,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "fastapi",
+      "research_status": "complete",
+      "step_count": 5,
+      "gate_count": 5,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "flutter",
+      "research_status": "complete",
+      "step_count": 19,
+      "gate_count": 6,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "react-native",
+      "research_status": "complete",
+      "step_count": 20,
+      "gate_count": 6,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "apple-developer",
+      "research_status": "complete",
+      "step_count": 36,
+      "gate_count": 7,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "android-developers",
+      "research_status": "complete",
+      "step_count": 21,
+      "gate_count": 5,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "unity",
+      "research_status": "complete",
+      "step_count": 27,
+      "gate_count": 14,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "arduino",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 7,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "canva-developer-platform",
+      "research_status": "complete",
+      "step_count": 16,
+      "gate_count": 6,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "zendesk",
+      "research_status": "complete",
+      "step_count": 21,
+      "gate_count": 8,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "mapbox",
+      "research_status": "complete",
+      "step_count": 11,
+      "gate_count": 8,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "fly-io",
+      "research_status": "complete",
+      "step_count": 22,
+      "gate_count": 8,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "algolia",
+      "research_status": "complete",
+      "step_count": 18,
+      "gate_count": 8,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "siemens",
+      "research_status": "complete",
+      "step_count": 15,
+      "gate_count": 8,
+      "uncertainty_count": 5,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "digitalocean",
+      "research_status": "complete",
+      "step_count": 29,
+      "gate_count": 7,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "netlify",
+      "research_status": "complete",
+      "step_count": 15,
+      "gate_count": 7,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "railway",
+      "research_status": "complete",
+      "step_count": 24,
+      "gate_count": 8,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "upsun",
+      "research_status": "complete",
+      "step_count": 32,
+      "gate_count": 9,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "qovery",
+      "research_status": "complete",
+      "step_count": 40,
+      "gate_count": 10,
+      "uncertainty_count": 5,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "akamai-connected-cloud",
+      "research_status": "complete",
+      "step_count": 37,
+      "gate_count": 9,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "vultr",
+      "research_status": "complete",
+      "step_count": 30,
+      "gate_count": 8,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "scaleway",
+      "research_status": "complete",
+      "step_count": 32,
+      "gate_count": 9,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "ovhcloud",
+      "research_status": "complete",
+      "step_count": 39,
+      "gate_count": 12,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "hetzner-cloud",
+      "research_status": "complete",
+      "step_count": 33,
+      "gate_count": 10,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "couchbase",
+      "research_status": "complete",
+      "step_count": 32,
+      "gate_count": 9,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "yugabytedb",
+      "research_status": "complete",
+      "step_count": 4,
+      "gate_count": 5,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": true,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Thin path (<= 4 primary steps); confirm it reaches a real terminal.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "singlestore",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 7,
+      "uncertainty_count": 6,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "clickhouse",
+      "research_status": "complete",
+      "step_count": 3,
+      "gate_count": 6,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": true,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Thin path (<= 4 primary steps); confirm it reaches a real terminal.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "tiger-data",
+      "research_status": "complete",
+      "step_count": 3,
+      "gate_count": 6,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": true,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Thin path (<= 4 primary steps); confirm it reaches a real terminal.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "influxdb",
+      "research_status": "complete",
+      "step_count": 11,
+      "gate_count": 7,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 1,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated."
+      ]
+    },
+    {
+      "slug": "tidb-cloud",
+      "research_status": "complete",
+      "step_count": 4,
+      "gate_count": 6,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": true,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Thin path (<= 4 primary steps); confirm it reaches a real terminal.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "weaviate-cloud",
+      "research_status": "complete",
+      "step_count": 5,
+      "gate_count": 8,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "qdrant-cloud",
+      "research_status": "complete",
+      "step_count": 26,
+      "gate_count": 7,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "zilliz-cloud",
+      "research_status": "complete",
+      "step_count": 5,
+      "gate_count": 10,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "perplexity",
+      "research_status": "complete",
+      "step_count": 12,
+      "gate_count": 5,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "groqcloud",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 3,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "together-ai",
+      "research_status": "complete",
+      "step_count": 23,
+      "gate_count": 5,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "fireworks-ai",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 3,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "cerebras-inference",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 4,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "elevenlabs",
+      "research_status": "complete",
+      "step_count": 10,
+      "gate_count": 5,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 1,
+      "notes": []
+    },
+    {
+      "slug": "stability-ai",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 6,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "weights-and-biases",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 2,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "modal",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 3,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "assemblyai",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 3,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "deepgram",
+      "research_status": "complete",
+      "step_count": 5,
+      "gate_count": 3,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "telnyx",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 2,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "sinch",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 5,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "bird",
+      "research_status": "complete",
+      "step_count": 10,
+      "gate_count": 7,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "ably",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 4,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "agora",
+      "research_status": "complete",
+      "step_count": 32,
+      "gate_count": 7,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "livekit",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 5,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "dolby-io",
+      "research_status": "complete",
+      "step_count": 5,
+      "gate_count": 7,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "cloudinary",
+      "research_status": "complete",
+      "step_count": 22,
+      "gate_count": 4,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "imgix",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 4,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "stytch",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 4,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "descope",
+      "research_status": "complete",
+      "step_count": 8,
+      "gate_count": 4,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "fusionauth",
+      "research_status": "complete",
+      "step_count": 23,
+      "gate_count": 6,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "ory",
+      "research_status": "complete",
+      "step_count": 8,
+      "gate_count": 3,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "teleport",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 1,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "twingate",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 3,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "gitguardian",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 5,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "semgrep",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 5,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "cyberark",
+      "research_status": "complete",
+      "step_count": 19,
+      "gate_count": 7,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "f5-distributed-cloud",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 6,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "checkout-com",
+      "research_status": "complete",
+      "step_count": 10,
+      "gate_count": 3,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "klarna",
+      "research_status": "complete",
+      "step_count": 16,
+      "gate_count": 6,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "mollie",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 4,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "razorpay",
+      "research_status": "complete",
+      "step_count": 21,
+      "gate_count": 5,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "airwallex",
+      "research_status": "complete",
+      "step_count": 12,
+      "gate_count": 3,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "gocardless",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 3,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "dwolla",
+      "research_status": "complete",
+      "step_count": 14,
+      "gate_count": 4,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "marqeta",
+      "research_status": "complete",
+      "step_count": 19,
+      "gate_count": 6,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "paddle",
+      "research_status": "complete",
+      "step_count": 10,
+      "gate_count": 6,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "chargebee",
+      "research_status": "complete",
+      "step_count": 20,
+      "gate_count": 9,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "asana",
+      "research_status": "complete",
+      "step_count": 8,
+      "gate_count": 5,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "notion",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 5,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "airtable",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 4,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "monday-com",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 5,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "intercom",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 6,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "freshworks",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 7,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "zoho",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 5,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "pipedrive",
+      "research_status": "complete",
+      "step_count": 5,
+      "gate_count": 7,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "docusign",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 7,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "dropbox",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 6,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "jetbrains",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 5,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "jfrog",
+      "research_status": "complete",
+      "step_count": 8,
+      "gate_count": 8,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "sonatype",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 6,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "harness",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 7,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "spacelift",
+      "research_status": "complete",
+      "step_count": 8,
+      "gate_count": 3,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "canonical",
+      "research_status": "complete",
+      "step_count": 11,
+      "gate_count": 4,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "suse",
+      "research_status": "complete",
+      "step_count": 3,
+      "gate_count": 3,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": true,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Thin path (<= 4 primary steps); confirm it reaches a real terminal.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "nvidia-developer",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 2,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "esri-developer",
+      "research_status": "complete",
+      "step_count": 15,
+      "gate_count": 5,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "smartbear",
+      "research_status": "complete",
+      "step_count": 12,
+      "gate_count": 4,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "temporal",
+      "research_status": "complete",
+      "step_count": 11,
+      "gate_count": 4,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "prefect",
+      "research_status": "complete",
+      "step_count": 8,
+      "gate_count": 4,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "dagster",
+      "research_status": "complete",
+      "step_count": 11,
+      "gate_count": 5,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "airbyte",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 3,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "fivetran",
+      "research_status": "complete",
+      "step_count": 8,
+      "gate_count": 7,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "dbt-labs",
+      "research_status": "complete",
+      "step_count": 8,
+      "gate_count": 5,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "astronomer",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 6,
+      "uncertainty_count": 2,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "camunda",
+      "research_status": "complete",
+      "step_count": 9,
+      "gate_count": 7,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "celonis",
+      "research_status": "complete",
+      "step_count": 5,
+      "gate_count": 7,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "uipath",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 7,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "splunk",
+      "research_status": "complete",
+      "step_count": 7,
+      "gate_count": 4,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "dynatrace",
+      "research_status": "complete",
+      "step_count": 4,
+      "gate_count": 5,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": true,
+      "local_or_playground_route": true,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Thin path (<= 4 primary steps); confirm it reaches a real terminal.",
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "sumo-logic",
+      "research_status": "complete",
+      "step_count": 8,
+      "gate_count": 5,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "coralogix",
+      "research_status": "complete",
+      "step_count": 10,
+      "gate_count": 7,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "better-stack",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 6,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "chronosphere",
+      "research_status": "complete",
+      "step_count": 5,
+      "gate_count": 2,
+      "uncertainty_count": 1,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "rollbar",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 7,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "checkly",
+      "research_status": "complete",
+      "step_count": 8,
+      "gate_count": 8,
+      "uncertainty_count": 3,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "rootly",
+      "research_status": "complete",
+      "step_count": 6,
+      "gate_count": 6,
+      "uncertainty_count": 0,
+      "has_opaque_signup_language": true,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "Path relies on an opaque signup/OAuth step; some fields are not publicly enumerated.",
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    },
+    {
+      "slug": "incident-io",
+      "research_status": "complete",
+      "step_count": 14,
+      "gate_count": 8,
+      "uncertainty_count": 4,
+      "has_opaque_signup_language": false,
+      "contradictory_success_labels": false,
+      "thin_path": false,
+      "local_or_playground_route": false,
+      "candidate_paths_count": 0,
+      "notes": [
+        "No enumerated candidate_paths; single documented route only."
+      ]
+    }
+  ]
+}

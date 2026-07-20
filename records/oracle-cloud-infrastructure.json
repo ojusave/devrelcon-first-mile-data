@@ -33,7 +33,7 @@
     ]
   },
   "documented_first_success": {
-    "official_milestone": "No single OCI platform-wide first-success milestone is documented.",
+    "official_milestone": "The Launching Your First Linux Instance tutorial ends when the developer reaches the default Oracle Linux shell prompt on the new Compute instance.",
     "normalized_outcome": "The developer is connected to the default shell for the instance.",
     "observable_completion_signal": "The developer is connected to the default shell for the instance.",
     "boundary_evidence": {

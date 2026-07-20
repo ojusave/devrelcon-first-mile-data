@@ -33,9 +33,9 @@
     ]
   },
   "documented_first_success": {
-    "official_milestone": "Not established end to end by public official documentation",
-    "normalized_outcome": "No complete first-user route can be established because the required GitHub or Google identity-provider authorization and return-to-Modal transition are not enumerated by Modal's public documentation.",
-    "observable_completion_signal": "The public signup page exposes provider choices, but the account setup guide resumes after choosing a provider and does not specify the external consent, account-linking, or Modal workspace-completion states.",
+    "official_milestone": "The Hello, world! tutorial ends when modal run executes the function on Modal's infrastructure and streams its remote and parallel outputs back to the shell.",
+    "normalized_outcome": "Sign up (one opaque step), install the package and token, then run modal run hello_world.py to execute the function remotely.",
+    "observable_completion_signal": "The shell shows the f.remote and f.map outputs and the app finishes successfully on Modal infrastructure.",
     "boundary_evidence": {
       "type": "demonstrated-terminal-state",
       "official_label_or_terminal_state": "`modal run hello_world.py` executes `f.remote` and `f.map` on Modal infrastructure and streams their logs and outputs back to the shell.",

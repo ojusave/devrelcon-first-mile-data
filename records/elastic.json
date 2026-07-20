@@ -43,7 +43,7 @@
     ]
   },
   "documented_first_success": {
-    "official_milestone": "Not established at the Elastic platform level.",
+    "official_milestone": "The Elasticsearch search getting-started guide ends when the Console search returns the expected document under hits.hits with its original _source JSON.",
     "normalized_outcome": "The expected book appears under hits.hits with its original _source JSON.",
     "observable_completion_signal": "The expected book appears under hits.hits with its original _source JSON.",
     "boundary_evidence": {

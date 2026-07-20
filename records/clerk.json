@@ -38,7 +38,7 @@
     ]
   },
   "documented_first_success": {
-    "official_milestone": "No single Clerk first-user path is selected by the Quickstarts router.",
+    "official_milestone": "The Clerk Next.js quickstart ends when the running app shows the signed-in user's profile icon in place of the Sign in and Sign up controls.",
     "normalized_outcome": "The profile icon is visible in place of Sign in and Sign up.",
     "observable_completion_signal": "The profile icon is visible in place of Sign in and Sign up.",
     "boundary_evidence": {
