@@ -16,7 +16,7 @@ services:
       #   value: "true"
       # - key: OPENROUTER_API_KEY
       #   sync: false
-      # - key: EXA_API_KEY
+      # - key: YDC_API_KEY
       #   sync: false
       # - key: GITHUB_TOKEN
       #   sync: false

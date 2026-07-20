@@ -11,6 +11,9 @@ export const config = {
   githubRepoUrl: "https://github.com/ojusave/devrelcon-first-mile-data",
   // Phase 2 kill switch. Off until the live-research pipeline is wired.
   researchEnabled: process.env.RESEARCH_ENABLED === "true",
+  // Phase 2 search provider (You.com Web Search API). YDC_API_KEY is the
+  // canonical env var name across You.com's docs and SDKs.
+  youApiKey: process.env.YDC_API_KEY ?? "",
 };
 
 /** Canonical Render signup URL with fixed campaign UTMs; only utm_content varies. */
