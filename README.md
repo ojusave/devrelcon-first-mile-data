@@ -73,6 +73,14 @@ than choosing silently.
 - `build-all.mjs`, `build-ds-quality.mjs`, `build-selected-path.mjs`, `build-catalog.mjs`, `build-ds-audit.mjs`: generators.
 - `tests/regression.mjs`: fixtures for the measurement layer (Render counts, Chronosphere assumptions, re-researched granularity, classifier false positives).
 
+## Published machine-readable interfaces
+
+The deployed Atlas exposes a concise LLM index at `/llms.txt`, consolidated
+context and deployed source code at `/llms-full.txt`, a complete JSON manifest
+at `/data/index.json`, and individual source files under `/source/`. The source
+snapshot is available for inspection and reproducibility; no public reuse
+license is granted.
+
 ## Route selection policy
 
 When official docs present peer routes, or a cloud signup gate previously left a

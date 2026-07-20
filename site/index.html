@@ -4,8 +4,40 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Explore the documented first-success routes of 205 developer platforms.">
+    <meta name="robots" content="index, follow">
     <title>First-Mile Atlas | DevRelCon NYC</title>
+    <link rel="canonical" href="https://devrelcon-research.onrender.com/">
+    <link rel="alternate" type="text/plain" href="https://devrelcon-research.onrender.com/llms.txt" title="LLM-readable site index">
+    <link rel="alternate" type="application/json" href="https://devrelcon-research.onrender.com/data/index.json" title="Dataset manifest">
     <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "First-Mile Atlas",
+        "description": "Official-documentation-grounded first-success routes for 205 developer platforms.",
+        "url": "https://devrelcon-research.onrender.com/",
+        "isAccessibleForFree": true,
+        "distribution": [
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "application/json",
+            "contentUrl": "https://devrelcon-research.onrender.com/data/index.json"
+          },
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "text/plain",
+            "contentUrl": "https://devrelcon-research.onrender.com/llms-full.txt"
+          }
+        ],
+        "hasPart": {
+          "@type": "SoftwareSourceCode",
+          "name": "First-Mile Atlas deployed source",
+          "codeRepository": "https://devrelcon-research.onrender.com/source/index.md",
+          "programmingLanguage": ["HTML", "CSS", "JavaScript"]
+        }
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to the atlas</a>
@@ -121,6 +153,7 @@
     <footer>
       <p>Built for “What Makes Developers Actually Ship?” at DevRelCon NYC.</p>
       <p>Search and filters run in this browser. This page does not submit them to an application backend.</p>
+      <p><a href="/llms.txt">LLM guide</a> · <a href="/source/index.md">Source code</a> · <a href="/data/index.json">Data manifest</a></p>
     </footer>
 
     <script src="app.js" defer></script>
