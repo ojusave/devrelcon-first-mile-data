@@ -4,7 +4,7 @@ services:
     runtime: node
     plan: starter
     region: oregon
-    buildCommand: npm ci && npm run build:data && npm run build:app
+    buildCommand: npm ci --include=dev && npm run build:data && npm run build:app
     startCommand: node dist/server.js
     healthCheckPath: /healthz
     autoDeploy: true
