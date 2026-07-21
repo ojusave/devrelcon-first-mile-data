@@ -1,5 +1,8 @@
 # First-Mile Atlas
 
+> [!IMPORTANT]
+> This historical research repository has moved to [Developer Journey Atlas](https://github.com/ojusave/developer-journey-atlas), which preserves this corpus with its Git history and combines it with the application, blocker taxonomy, generated human and LLM views, migration evidence, and open-source licensing. No research record was deleted. Use the canonical repository for active development and current licensing.
+
 Source-grounded onboarding research for people studying how developer platforms document the path to first success.
 
 [Live Atlas](https://devrelcon-research.onrender.com/) · [LLM guide](https://devrelcon-research.onrender.com/llms.txt) · [Data manifest](https://devrelcon-research.onrender.com/data/index.json) · [Source snapshot](https://devrelcon-research.onrender.com/source/index.md)
