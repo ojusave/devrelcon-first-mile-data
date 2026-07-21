@@ -2,7 +2,6 @@ import type {
   DataStore, LLMProvider, MetricRow, PlatformRecord, RepoWriter, SearchProvider,
 } from "./ports.js";
 import { buildAssessment, type Assessment } from "./assessment.js";
-import { buildComparison, type Comparison } from "./comparison.js";
 
 export interface ResearchDeps {
   search: SearchProvider;
@@ -16,7 +15,7 @@ export interface ResearchDeps {
 export type ResearchEvent =
   | { type: "status"; step: string; message: string }
   | { type: "known"; slug: string }
-  | { type: "result"; assessment: Assessment; comparison: Comparison; record: PlatformRecord; draft: true }
+  | { type: "result"; assessment: Assessment; record: PlatformRecord; draft: true }
   | { type: "pr"; url: string }
   | { type: "pr_skipped"; reason: string }
   | { type: "error"; code: string; message: string }
@@ -74,18 +73,16 @@ export async function runResearch(platform: string, deps: ResearchDeps, emit: Em
   }
 
   let assessment: Assessment;
-  let comparison: Comparison;
   try {
-    emit({ type: "status", step: "measure", message: "Measuring the route and placing it in its category…" });
+    emit({ type: "status", step: "assemble", message: "Assembling the documented route from official docs…" });
     const row = deps.buildRow(record);
     assessment = buildAssessment(row, record);
-    comparison = buildComparison(row, deps.store.listRows());
   } catch (err) {
-    emit({ type: "error", code: "measure_failed", message: msg(err) });
+    emit({ type: "error", code: "assemble_failed", message: msg(err) });
     return;
   }
 
-  emit({ type: "result", assessment, comparison, record, draft: true });
+  emit({ type: "result", assessment, record, draft: true });
 
   if (!deps.repo) {
     emit({

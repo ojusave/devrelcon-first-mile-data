@@ -1,5 +1,14 @@
 // Generates selected-path-heuristic.json.
 //
+// EXPERIMENTAL / INTERNAL. NOT SHOWN ON THE PUBLIC SITE.
+// The public First-Mile Atlas shows documented onboarding steps only, with no
+// score, no rank, and no leaderboard. This generator and its output are kept in
+// the repo for reproducibility and transparency (they are not being deleted),
+// but they are internal. build-site.mjs deliberately does not publish
+// selected-path-heuristic.json, and no API or UI surfaces its numbers. A
+// properly verified benchmark may return later, once the underlying step claims
+// are checked against their sources (see `npm run verify`).
+//
 // This replaces the old easiest-path.json. The name changed because the old file
 // never compared documented alternatives with a common standard, so calling any
 // route "easiest" was unsupported. This file scores each record's SELECTED route

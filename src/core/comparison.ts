@@ -1,3 +1,9 @@
+// EXPERIMENTAL / INTERNAL. Not wired into the public site.
+//
+// This builds a score-based, category-scoped distribution across platforms.
+// Because that reads as a ranking, it is no longer shown publicly and is not
+// mounted on the API router (see src/api/router.ts). The file is kept for
+// reproducibility and in case a properly verified benchmark returns later.
 import type { MetricRow } from "./ports.js";
 import { MEASUREMENT_NOTE } from "./assessment.js";
 

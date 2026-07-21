@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "validate": "node validate-records.mjs",
+    "verify": "node verify.mjs",
     "build": "node build-all.mjs",
     "check": "node build-all.mjs --check",
     "test": "node tests/regression.mjs",

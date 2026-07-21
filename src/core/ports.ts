@@ -37,6 +37,7 @@ export interface DatasetMeta {
 export interface PlatformRecord {
   platform: { name: string; slug: string; organization: string };
   category: string;
+  researched_at?: string;
   surface?: { name?: string; selection_basis?: string };
   documented_first_success?: {
     official_milestone?: string;
@@ -44,9 +45,19 @@ export interface PlatformRecord {
     observable_completion_signal?: string;
     boundary_evidence?: { type?: string };
   };
-  prerequisites?: Array<{ type: string; requirement: string; required: boolean }>;
-  primary_path?: Array<{ step_number: number; phase?: string; action: string }>;
-  friction_gates?: Array<{ type?: string; description?: string; requirement?: string }>;
+  prerequisites?: Array<{ order?: number; type: string; requirement: string; required: boolean }>;
+  primary_path?: Array<{
+    step_number: number;
+    phase?: string;
+    actor?: string;
+    interface?: string;
+    action: string;
+    details?: string[];
+    success_signal?: string;
+    required?: boolean;
+    source_ids?: string[];
+  }>;
+  friction_gates?: Array<{ at_step?: number; type?: string; description?: string; requirement?: string }>;
   time_to_first_success?: {
     vendor_claim?: boolean;
     value?: string;

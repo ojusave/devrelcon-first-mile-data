@@ -1,3 +1,8 @@
+// EXPERIMENTAL / INTERNAL. Not mounted on the public API router.
+//
+// This handler returns the score-based comparison distribution, which reads as
+// a ranking. It is kept in the repo for reproducibility but is intentionally
+// not exposed by createApiRouter (see src/api/router.ts).
 import type { Request, Response } from "express";
 import type { DataStore } from "../core/ports.js";
 import { buildComparison } from "../core/comparison.js";

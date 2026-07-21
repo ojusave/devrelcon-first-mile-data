@@ -8,7 +8,7 @@ Source-grounded onboarding research for people studying how developer platforms 
 
 - **205 canonical records:** each JSON file reconstructs one selected route to a documented first-success boundary.
 - **Step-level evidence:** prerequisites, actions, gates, waits, outcomes, and vendor time claims cite inspected official documentation.
-- **Honest measurement:** normalized counts separate developer actions from platform events. The effort score is unitless and is not a ranking.
+- **Documented steps, not scores:** the public site shows each platform's documented onboarding steps, extracted from official docs. It shows no score, no rank, and no leaderboard. An experimental effort-score generator stays in the repo but is internal and not shown publicly.
 - **Multiple access paths:** use the interactive Atlas, individual JSON records, the complete manifest, or the LLM-oriented text interfaces.
 
 ## Contents
@@ -17,6 +17,7 @@ Source-grounded onboarding research for people studying how developer platforms 
 - [Use the dataset](#use-the-dataset)
 - [Research contract](#research-contract)
 - [Data products](#data-products)
+- [Verify documented steps](#verify-documented-steps)
 - [Analyze safely](#analyze-safely)
 - [Develop and validate](#develop-and-validate)
 - [Deploy and operate](#deploy-and-operate)
@@ -68,11 +69,29 @@ A record marked `complete` is research-complete for its selected route. It is no
 | `roster.json` | Complete 205-platform research roster |
 | `coverage.json` | Validation and completion report |
 | `ds-quality.json` | Analytical quality, assumptions, and comparability metadata |
-| `selected-path-heuristic.json` | Normalized counts and unitless effort scores for selected routes |
+| `selected-path-heuristic.json` | Experimental, internal normalized counts and unitless effort scores for selected routes. Not shown on the public site. |
 | `catalog.md` | Generated human-readable index |
 | `ds-audit.md` | Pre-repair baseline audit and reproducibility findings |
+| `verify/<slug>.json` | Per-step verification verdicts and supporting official-doc excerpts (see [Verify documented steps](#verify-documented-steps)) |
+| `verify-summary.md` | Verification counts and the list of records a human must review |
 
 Generated files come from the canonical records and shared measurement code in `lib/measure.mjs`. Run the generators instead of editing derived artifacts by hand.
+
+`selected-path-heuristic.json` and its generator `build-selected-path.mjs` are experimental and internal. The effort score is a unitless heuristic over normalized counts, not minutes, not observed time, not a vendor claim, and not a ranking. It is kept in the repo for reproducibility but is deliberately not shown on the public site. A properly verified benchmark may return later, once the underlying claims are checked against sources.
+
+## Verify documented steps
+
+`npm run verify` checks each record's documented steps against the official docs they cite. It resolves each step's `source_ids` to the record's `sources`, confirms the cited URLs are on the platform's own documentation domain, fetches the live docs (cached by URL so reruns are cheap and deterministic), and requires a literal supporting excerpt from the fetched page for the step's `action` and `success_signal`. Nothing passes on a model's opinion: a verdict rests on quoted document text or the step is flagged.
+
+```sh
+npm run verify                              # verify every record
+npm run verify -- --only stripe,render,vercel   # verify a subset (headliners first)
+npm run verify -- --refresh                 # ignore the fetch cache and refetch
+```
+
+A step is `supported` only when a cited, reachable, official-domain source yields a literal excerpt covering its action and success signal. A record is `verified` only when every required step is supported; otherwise it is `needs_human` with the failing steps listed. Platforms listed in `headline.json` (the ones named aloud on a slide) are never marked `verified` by the tool alone. They are capped at `needs_human` until a human signs off, because headline claims get human verification, not tool self-certification.
+
+Outputs are written to `verify/<slug>.json` (per-step verdicts, excerpts, URLs, and `fetched_at`) and `verify-summary.md` (counts and the explicit human-review list). Both are dated. The verifier reads the fetched HTML only: docs rendered entirely client-side may yield fewer supported steps, which is reported honestly rather than guessed.
 
 ## Analyze safely
 
@@ -101,6 +120,7 @@ npm test          # run measurement regression fixtures
 npm run validate  # validate all canonical records
 npm run build     # regenerate derived artifacts and validate again
 npm run check     # regenerate, then fail if tracked output changed
+npm run verify    # verify documented steps against cited official docs
 npm run site      # build the static site into public/
 ```
 
