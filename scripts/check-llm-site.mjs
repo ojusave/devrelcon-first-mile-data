@@ -15,7 +15,6 @@ const requiredFiles = [
   "catalog.md",
   "sitemap.xml",
   "data/index.json",
-  "data/selected-path-heuristic.json",
   "data/ds-quality.json",
   "data/coverage.json",
   "data/coverage-summary.json",
@@ -47,8 +46,9 @@ assert.equal(manifest.records.length, 205);
 assert.equal(manifest.counts.recordsWithErrors, 0);
 assert.equal(manifest.sourceCode.license, null);
 assert.equal(manifest.sourceCode.files.length, 14);
-assert.match(manifest.interpretation.join(" "), /unitless model output/);
+assert.match(manifest.interpretation.join(" "), /extracted from official docs/);
 assert.match(manifest.interpretation.join(" "), /not a ranking/);
+assert.doesNotMatch(manifest.interpretation.join(" "), /score/i);
 
 for (const source of manifest.sourceCode.files) {
   const canonical = await readFile(path.join(projectRoot, source.path), "utf8");

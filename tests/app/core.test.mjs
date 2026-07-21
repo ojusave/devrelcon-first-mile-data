@@ -29,32 +29,43 @@ function row(overrides = {}) {
   };
 }
 
-test("buildAssessment joins metrics and degrades without a record", () => {
+test("buildAssessment surfaces documented content and degrades without a record", () => {
   const a = buildAssessment(row());
   assert.equal(a.name, "Render");
   assert.equal(a.recordAvailable, false);
-  assert.equal(a.metrics.developerActions, 8);
+  assert.equal(a.steps.length, 0);
   assert.equal(a.prerequisites.length, 0);
   assert.equal(a.recordUrl, "data/records/render.json");
   assert.match(a.note, /not a ranking/);
+  // The public assessment must never expose a score, count metric, or ranking.
+  assert.ok(!("metrics" in a), "assessment must not expose score metrics");
 });
 
-test("buildAssessment surfaces record detail when present", () => {
+test("buildAssessment surfaces documented steps and record detail when present", () => {
   const record = {
-    platform: { name: "Render", slug: "render", organization: "Render" },
+    platform: { name: "Render", slug: "render", organization: "Render Services, Inc." },
     category: "Cloud and application runtimes",
+    researched_at: "2026-07-19",
     documented_first_success: { official_milestone: "You've deployed your first app." },
-    prerequisites: [{ type: "account", requirement: "GitHub account", required: true }],
-    friction_gates: [{ type: "account", description: "Sign up" }],
+    prerequisites: [{ order: 1, type: "account", requirement: "GitHub account", required: true }],
+    friction_gates: [{ at_step: 3, type: "account", description: "Sign up" }],
     time_to_first_success: { vendor_claim: false, value: "not documented" },
-    primary_path: [{ step_number: 1, action: "Open docs" }],
+    primary_path: [
+      { step_number: 1, phase: "arrive", actor: "developer", interface: "documentation", action: "Open docs", success_signal: "Docs load", required: true, source_ids: ["S1"] },
+    ],
     sources: [{ id: "S1", title: "Deploy tutorial", url: "https://render.com/docs" }],
     uncertainties: [],
   };
   const a = buildAssessment(row(), record);
   assert.equal(a.recordAvailable, true);
+  assert.equal(a.organization, "Render Services, Inc.");
+  assert.equal(a.researchedAt, "2026-07-19");
   assert.equal(a.firstSuccess.milestone, "You've deployed your first app.");
   assert.equal(a.prerequisites[0].type, "account");
+  assert.equal(a.steps.length, 1);
+  assert.equal(a.steps[0].action, "Open docs");
+  assert.equal(a.steps[0].successSignal, "Docs load");
+  assert.equal(a.frictionGates[0].atStep, 3);
   assert.equal(a.pathStepCount, 1);
   assert.equal(a.sourceCount, 1);
 });

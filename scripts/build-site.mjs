@@ -16,7 +16,7 @@ const sourceFiles = [
   { path: "scripts/build-site.mjs", language: "javascript", description: "Deterministic static-site and LLM artifact generator." },
   { path: "scripts/check-llm-site.mjs", language: "javascript", description: "Machine-readable artifact contract checks." },
   { path: "build-all.mjs", language: "javascript", description: "Reproducible validation and derived-artifact pipeline." },
-  { path: "build-selected-path.mjs", language: "javascript", description: "Selected-route normalized-count and heuristic-score generator." },
+  { path: "build-selected-path.mjs", language: "javascript", description: "Experimental, internal selected-route heuristic-score generator. Its output is not published to the public site and is not shown to visitors." },
   { path: "build-ds-quality.mjs", language: "javascript", description: "Analytical quality and comparability metadata generator." },
   { path: "validate-records.mjs", language: "javascript", description: "Canonical record schema and evidence validation." },
   { path: "build-catalog.mjs", language: "javascript", description: "Human-readable catalog generation." },
@@ -39,13 +39,18 @@ await rm(outputRoot, { recursive: true, force: true });
 await mkdir(dataRoot, { recursive: true });
 await mkdir(sourceRoot, { recursive: true });
 await cp(path.join(projectRoot, "site"), outputRoot, { recursive: true, force: true });
-await cp(path.join(projectRoot, "selected-path-heuristic.json"), path.join(dataRoot, "selected-path-heuristic.json"));
+// selected-path-heuristic.json is intentionally NOT published. It is the
+// experimental, internal effort-score output and is kept out of the public
+// site. The generator (build-selected-path.mjs) and its output stay in the
+// repo, clearly relabeled, in case a properly verified benchmark returns.
 await cp(path.join(projectRoot, "ds-quality.json"), path.join(dataRoot, "ds-quality.json"));
 await cp(path.join(projectRoot, "coverage.json"), path.join(dataRoot, "coverage.json"));
 await cp(path.join(projectRoot, "record.schema.json"), path.join(dataRoot, "record.schema.json"));
 await cp(path.join(projectRoot, "records"), path.join(dataRoot, "records"), { recursive: true, force: true });
 
 const coverage = JSON.parse(await readFile(path.join(projectRoot, "coverage.json"), "utf8"));
+// selected-path-heuristic.json is read only to enumerate platforms (name, slug,
+// category, outcome) for the manifest. Its scores are never emitted publicly.
 const atlas = JSON.parse(await readFile(path.join(projectRoot, "selected-path-heuristic.json"), "utf8"));
 const summary = {
   generatedAt: coverage.generated_at,
@@ -76,9 +81,8 @@ const dataIndex = {
   canonicalUrl,
   generatedAt: coverage.generated_at,
   interpretation: [
-    "This dataset describes documented route shape, not product usability, conversion, or observed developer completion time.",
-    "heuristic_effort_score is a unitless model output over normalized counts, not minutes, observed time, or a vendor claim.",
-    "Routes are only conditionally comparable, and the score is not a ranking.",
+    "This dataset describes documented route shape, extracted from official docs, not product usability, conversion, or observed developer completion time.",
+    "This is not a ranking. Platforms are not ranked or ordered against each other on the public site.",
     "Each record contains its own official source URLs and evidence mapping.",
   ],
   counts: summary,
@@ -86,7 +90,6 @@ const dataIndex = {
     llmIndex: `${canonicalUrl}/llms.txt`,
     fullContext: `${canonicalUrl}/llms-full.txt`,
     catalog: `${canonicalUrl}/catalog.md`,
-    selectedPathHeuristic: `${canonicalUrl}/data/selected-path-heuristic.json`,
     analyticalQuality: `${canonicalUrl}/data/ds-quality.json`,
     coverage: `${canonicalUrl}/data/coverage.json`,
     coverageSummary: `${canonicalUrl}/data/coverage-summary.json`,
@@ -136,7 +139,7 @@ for (const file of sourceFiles) {
 const sourceIndex = `# First-Mile Atlas source code\n\n> Deployed source snapshot for the First-Mile Atlas static site and its research-data generators.\n\nThe files are published for inspection and reproducibility. No public reuse license is granted. Generated research artifacts and the 205 evidence records are indexed separately in [the data manifest](${canonicalUrl}/data/index.json).\n\n## Site and build\n\n${sourceFiles.map((file) => `- [${file.path}](${sourceUrl(file.path)}): ${file.description}`).join("\n")}\n`;
 await writeFile(path.join(sourceRoot, "index.md"), sourceIndex, "utf8");
 
-const llmsIndex = `# First-Mile Atlas\n\n> Official-documentation-grounded first-success routes for 205 developer platforms, prepared for the DevRelCon NYC 2026 workshop.\n\nUse this corpus to inspect documented onboarding paths and evidence, not to rank product usability or claim observed completion time. The heuristic effort score is a unitless model output over normalized counts, not minutes, observed time, or a vendor claim. Routes are only conditionally comparable. Each canonical record cites the official documentation used for its steps and outcome. Source code is available for inspection, but no public reuse license is granted.\n\n## Start here\n\n- [Full LLM context](${canonicalUrl}/llms-full.txt): Methodology, measurement contract, catalog, schema, and deployed source code in one text file.\n- [Machine-readable manifest](${canonicalUrl}/data/index.json): Dataset metadata, interpretation rules, all 205 record URLs, and source-code URLs.\n- [Methodology](${canonicalUrl}/methodology.md): Research question, evidence rules, route-selection policy, measurement contract, and completion standard.\n- [Measurement contract](${canonicalUrl}/measurement-contract.md): Units, count definitions, comparability limits, provenance, and non-claims.\n- [Human-readable catalog](${canonicalUrl}/catalog.md): All platforms, selected surfaces, outcomes, normalized counts, and vendor time claims.\n\n## Research data\n\n- [Selected-route heuristic](${canonicalUrl}/data/selected-path-heuristic.json): Normalized transition counts and unitless heuristic scores for all 205 selected routes; not a ranking.\n- [Analytical quality metadata](${canonicalUrl}/data/ds-quality.json): Comparability and record-quality fields for filtering before analysis.\n- [Coverage report](${canonicalUrl}/data/coverage.json): Per-record validation counts and errors.\n- [Record schema](${canonicalUrl}/data/record.schema.json): Machine-checkable contract for canonical evidence records.\n- [Render evidence record](${canonicalUrl}/data/records/render.json): Representative complete record with step-level official sources.\n\n## Source code\n\n- [Source index](${canonicalUrl}/source/index.md): Every source file exposed by this deployment with purpose notes.\n${sourceFiles.map((file) => `- [${file.path}](${sourceUrl(file.path)}): ${file.description}`).join("\n")}\n\n## Optional\n\n- [Interactive Atlas](${canonicalUrl}/): Browser search and filters over the selected-route heuristic.\n- [Workshop deck](https://devrelcon.onrender.com): Presentation that uses this research.\n- [FakeSaaSPI exercise](https://fakesaaspi.onrender.com): Deliberately frustrating onboarding exercise used in the workshop.\n`;
+const llmsIndex = `# First-Mile Atlas\n\n> Official-documentation-grounded first-success routes for 205 developer platforms, prepared for the DevRelCon NYC 2026 workshop.\n\nUse this corpus to inspect documented onboarding paths and evidence, not to rank product usability or claim observed completion time. This is not a ranking. Each canonical record cites the official documentation used for its steps and outcome. Source code is available for inspection, but no public reuse license is granted.\n\n## Start here\n\n- [Full LLM context](${canonicalUrl}/llms-full.txt): Methodology, measurement contract, catalog, schema, and deployed source code in one text file.\n- [Machine-readable manifest](${canonicalUrl}/data/index.json): Dataset metadata, interpretation rules, all 205 record URLs, and source-code URLs.\n- [Methodology](${canonicalUrl}/methodology.md): Research question, evidence rules, route-selection policy, measurement contract, and completion standard.\n- [Measurement contract](${canonicalUrl}/measurement-contract.md): Units, count definitions, comparability limits, provenance, and non-claims.\n- [Human-readable catalog](${canonicalUrl}/catalog.md): All platforms, selected surfaces, outcomes, normalized counts, and vendor time claims.\n\n## Research data\n\n- [Analytical quality metadata](${canonicalUrl}/data/ds-quality.json): Comparability and record-quality fields for filtering before analysis.\n- [Coverage report](${canonicalUrl}/data/coverage.json): Per-record validation counts and errors.\n- [Record schema](${canonicalUrl}/data/record.schema.json): Machine-checkable contract for canonical evidence records.\n- [Render evidence record](${canonicalUrl}/data/records/render.json): Representative complete record with step-level official sources.\n\n## Source code\n\n- [Source index](${canonicalUrl}/source/index.md): Every source file exposed by this deployment with purpose notes.\n${sourceFiles.map((file) => `- [${file.path}](${sourceUrl(file.path)}): ${file.description}`).join("\n")}\n\n## Optional\n\n- [Interactive Atlas](${canonicalUrl}/): Browser search and filters over the selected-route heuristic.\n- [Workshop deck](https://devrelcon.onrender.com): Presentation that uses this research.\n- [FakeSaaSPI exercise](https://fakesaaspi.onrender.com): Deliberately frustrating onboarding exercise used in the workshop.\n`;
 await writeFile(path.join(outputRoot, "llms.txt"), llmsIndex, "utf8");
 
 const llmsFull = `# First-Mile Atlas: full LLM context\n\n> Consolidated methodology, catalog, record contract, and deployed source code. For current canonical JSON records, use ${canonicalUrl}/data/index.json.\n\nThis file is generated from the same repository inputs as the live site. Source is published for inspection; no public reuse license is granted.\n\n${methodology.trim()}\n\n# Platform catalog\n\n${catalog.replace(/^# .*\n+/, "").trim()}\n\n# Canonical record schema\n\n${fencedCode("json", schema)}\n\n# Deployed source code\n\n${sourceSections.join("\n\n")}\n`;

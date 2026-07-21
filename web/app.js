@@ -82,29 +82,38 @@ const runSearch = debounce(async (q) => {
   }
 }, 160);
 
-/* ---------- Rendering an assessment ---------- */
+/* ---------- Rendering one platform's documented route ---------- */
 
-function metricBox(value, label, hint) {
-  const hintHtml = hint ? `<span class="m-hint">${esc(hint)}</span>` : "";
-  return `<div class="metric-box"><span class="m-value">${esc(value)}</span><span class="m-label">${esc(label)}</span>${hintHtml}</div>`;
-}
-
-// Plain-language translation of the comparability status, so "conditional"
-// isn't a cryptic label.
-function comparabilityText(status) {
-  if (status === "comparable") return "Comparable: this route makes few special assumptions.";
-  if (status === "not-comparable") return "Not directly comparable: the documented success here is ambiguous or unusual.";
-  return "Conditionally comparable: this route assumes things (like an existing account or a specific surface), so read side-by-side numbers loosely.";
-}
-
-// A short, scannable "how to read this" strip shown with every result.
+// A short, honest "how to read this" strip shown with every result. It frames
+// the content as documented steps, not a measurement, score, or ranking.
 function readStrip() {
   return `
     <p class="read-strip">
-      <strong>How to read this:</strong> these numbers describe the route official docs lay out to a first success,
-      how many steps and gates it spells out. They are not a measure of how easy, fast, or good the product is,
-      and a lower number is not "better".
+      <strong>How to read this:</strong> these are the steps the platform's official docs lay out
+      to a first success, extracted from those docs. They describe the documented route, not how easy,
+      fast, or good the product is, and this is not a ranking.
     </p>`;
+}
+
+function stepItem(s) {
+  const meta = [s.phase, s.actor, s.interface]
+    .filter(Boolean)
+    .map((x) => `<span class="step-tag">${esc(x)}</span>`)
+    .join("");
+  const details = s.details && s.details.length
+    ? `<ul class="step-details">${s.details.map((d) => `<li>${esc(d)}</li>`).join("")}</ul>`
+    : "";
+  const signal = s.successSignal
+    ? `<p class="step-signal"><strong>Success signal:</strong> ${esc(s.successSignal)}</p>`
+    : "";
+  const optional = s.required ? "" : '<span class="step-optional">optional</span>';
+  return `
+    <li class="step">
+      <div class="step-head"><span class="step-num">${num(s.stepNumber)}</span>${meta}${optional}</div>
+      <p class="step-action">${esc(s.action)}</p>
+      ${details}
+      ${signal}
+    </li>`;
 }
 
 function renderAssessment(a) {
@@ -115,7 +124,9 @@ function renderAssessment(a) {
     : '<p class="lede">No prerequisites documented for this route.</p>';
 
   const gates = a.frictionGates.length
-    ? `<div class="chips">${a.frictionGates.map((g) => `<span class="chip">${esc(g.type)}</span>`).join("")}</div>`
+    ? `<ul class="gate-list">${a.frictionGates
+        .map((g) => `<li><span class="chip">${esc(g.type)}</span> ${esc(g.description)}${g.atStep ? ` <span class="gate-step">(at step ${num(g.atStep)})</span>` : ""}</li>`)
+        .join("")}</ul>`
     : '<p class="lede">No friction gates documented on this route.</p>';
 
   const time = a.timeToFirstSuccess
@@ -124,10 +135,18 @@ function renderAssessment(a) {
 
   const sources = a.sources.length
     ? `<ul class="sources-list">${a.sources
-        .slice(0, 6)
+        .slice(0, 8)
         .map((s) => `<li><a href="${esc(s.url)}" rel="noreferrer">${esc(s.title)}</a></li>`)
-        .join("")}${a.sources.length > 6 ? `<li>+ ${a.sources.length - 6} more in the record</li>` : ""}</ul>`
+        .join("")}${a.sources.length > 8 ? `<li>+ ${a.sources.length - 8} more in the record</li>` : ""}</ul>`
     : '<p class="lede">See the full record for sources.</p>';
+
+  const steps = a.steps.length
+    ? `<ol class="steps-list">${a.steps.map(stepItem).join("")}</ol>`
+    : '<p class="lede">Open the full record for the documented steps.</p>';
+
+  const asOf = a.researchedAt
+    ? ` Documented from official docs as of ${esc(a.researchedAt)}. Docs change.`
+    : "";
 
   return `
     <div class="card">
@@ -138,121 +157,35 @@ function renderAssessment(a) {
       <p class="lede">${esc(a.outcome)}</p>
       ${readStrip()}
 
-      <div class="metrics-grid">
-        ${metricBox(num(a.metrics.developerActions), "Developer actions", "steps you take")}
-        ${metricBox(num(a.metrics.gates), "Friction gates", "sign-up, billing, approvals…")}
-        ${metricBox(num(a.metrics.platformEvents), "Automated steps", "the platform does these")}
-        ${metricBox(a.metrics.effortScore, "Route length", "weighted step count, not time")}
-        ${metricBox(esc(a.metrics.comparability), "Comparability", "how safely it compares")}
-      </div>
-      <p class="lede compare-note">${esc(comparabilityText(a.metrics.comparability))}</p>
-
       <dl class="kv">
         <div><dt>Selected route</dt><dd>${esc(a.selectedSurface)}</dd></div>
         <div><dt>Documented first success</dt><dd>${esc(a.firstSuccess.milestone || a.firstSuccess.normalizedOutcome || a.outcome)}</dd></div>
         <div><dt>Vendor time claim</dt><dd>${time}</dd></div>
         <div><dt>Prerequisites</dt><dd>${prereqs}</dd></div>
-        <div><dt>Friction gates</dt><dd>${gates}</dd></div>
-        <div><dt>Documented path length</dt><dd>${num(a.pathStepCount)} steps, ${num(a.sourceCount)} official sources</dd></div>
-        <div><dt>Sources</dt><dd>${sources}</dd></div>
+        <div><dt>Friction gates (descriptive)</dt><dd>${gates}</dd></div>
       </dl>
 
-      <p class="dist-line"><a href="${esc(a.recordUrl)}" rel="noreferrer">Open the full evidence record (JSON)</a></p>
-      <p class="dist-line">${esc(a.note)}</p>
-    </div>`;
-}
+      <h3 class="steps-heading">Documented steps <span class="steps-count">${num(a.pathStepCount)} steps, ${num(a.sourceCount)} official sources</span></h3>
+      ${steps}
 
-function distLine(label, d) {
-  return `<p class="dist-line"><strong>${esc(label)}:</strong> ${num(d.value)} vs same-finish-line median ${num(d.categoryMedian)}. ${num(d.lowerCount)} document a shorter route, ${num(d.higherCount)} document a longer one.</p>`;
-}
-
-function peerRow(p) {
-  return `
-      <tr class="${p.sameFinishLine ? "" : "diff-finish"}">
-        <td><a href="#" data-slug="${esc(p.slug)}" class="peer-link">${esc(p.name)}</a></td>
-        <td>${esc(p.finishLine)}</td>
-        <td>${num(p.developerActions)}</td>
-        <td>${num(p.gates)}</td>
-        <td>${p.effortScore}</td>
-      </tr>`;
-}
-
-// Turn the effort-score distribution into one plain sentence about where this
-// route sits among same-finish-line peers, framed as documentation length.
-function positionSentence(c) {
-  const d = c.distribution.effortScore;
-  let where;
-  if (d.higherCount > d.lowerCount) where = "on the longer, more spelled-out side";
-  else if (d.lowerCount > d.higherCount) where = "on the shorter, more condensed side";
-  else where = "about mid-pack";
-  return `Among the ${c.sameFinishLineCount} peer(s) that also reach "${c.finishLine}", this route's documented length is ${where}. That reflects how much the docs walk you through, which can mean thorough docs or more required steps, not that it is harder or worse.`;
-}
-
-function renderComparison(c) {
-  if (c.peerCount === 0) {
-    return `<div class="card"><h2>Category context</h2><p class="lede">No other platforms in "${esc(c.category)}" yet.</p></div>`;
-  }
-
-  const sameFinish = c.peers.filter((p) => p.sameFinishLine);
-  const diffFinish = c.peers.filter((p) => !p.sameFinishLine);
-
-  const dist = c.sameFinishLineCount > 0
-    ? `<p class="lede compare-note">${esc(positionSentence(c))}</p>
-       ${distLine("Developer actions", c.distribution.developerActions)}
-       ${distLine("Friction gates", c.distribution.gates)}
-       ${distLine("Route length (effort score)", c.distribution.effortScore)}`
-    : `<p class="lede">No peer in this category documents the same finish line ("${esc(c.finishLine)}"), so there is no like-for-like distribution to show.</p>`;
-
-  const selfRow = `
-    <tr class="self">
-      <td>${esc(c.platform.name)} (this platform)</td>
-      <td>${esc(c.finishLine)}</td>
-      <td>${num(c.distribution.developerActions.value)}</td>
-      <td>${num(c.distribution.gates.value)}</td>
-      <td>${c.distribution.effortScore.value}</td>
-    </tr>`;
-
-  const sameSection = sameFinish.length
-    ? sameFinish.map(peerRow).join("")
-    : "";
-
-  const diffSection = diffFinish.length
-    ? `<tr class="section-label"><td colspan="5">Different finish line: measures a different milestone, not compared</td></tr>${diffFinish.map(peerRow).join("")}`
-    : "";
-
-  return `
-    <div class="card">
-      <div class="assess-head">
-        <h2>Category context: ${esc(c.category)}</h2>
-        <span class="pill">${num(c.sameFinishLineCount)} peer(s) with the same finish line</span>
+      <div class="sources-block">
+        <h3>Sources</h3>
+        ${sources}
       </div>
-      <p class="dist-line">Documented finish line for this route: <strong>${esc(c.finishLine)}</strong>. Comparisons only make sense between routes that end at the same milestone.</p>
-      ${dist}
-      <table class="compare-table">
-        <thead>
-          <tr><th>Platform</th><th>Finish line</th><th>Dev actions</th><th>Gates</th><th>Route length</th></tr>
-        </thead>
-        <tbody>
-          ${selfRow}
-          ${sameSection}
-          ${diffSection}
-        </tbody>
-      </table>
-      <p class="dist-line">${esc(c.comparabilityNote)}</p>
+
+      <p class="dist-line"><a href="${esc(a.recordUrl)}" rel="noreferrer">Open the full evidence record (JSON)</a></p>
+      <p class="dist-line note-line">${esc(a.note)}${asOf}</p>
     </div>`;
 }
 
 async function showPlatform(slug) {
   hideSuggestions();
   el.result.hidden = false;
-  el.result.innerHTML = '<div class="state-message">Loading assessment…</div>';
+  el.result.innerHTML = '<div class="state-message">Loading the documented route…</div>';
   el.result.scrollIntoView({ behavior: "smooth", block: "start" });
   try {
-    const [assessment, comparison] = await Promise.all([
-      api(`/api/platforms/${encodeURIComponent(slug)}`),
-      api(`/api/compare?slug=${encodeURIComponent(slug)}`),
-    ]);
-    el.result.innerHTML = renderAssessment(assessment.data) + renderComparison(comparison.data);
+    const assessment = await api(`/api/platforms/${encodeURIComponent(slug)}`);
+    el.result.innerHTML = renderAssessment(assessment.data);
   } catch (err) {
     el.result.innerHTML = `<div class="state-message"><strong>Could not load that platform.</strong><br>${esc(err.message)}</div>`;
   }
@@ -263,7 +196,7 @@ function renderUnknown(query) {
   el.result.innerHTML = `
     <div class="card unknown-panel">
       <h2>"${esc(query)}" isn't in the dataset yet</h2>
-      <p class="lede">Run live research: the Atlas searches official documentation, reconstructs a source-grounded first-mile record, measures it, and (when configured) opens a draft pull request back to the dataset.</p>
+      <p class="lede">Run live research: the Atlas searches official documentation, reconstructs a source-grounded first-mile record, and (when configured) opens a draft pull request back to the dataset.</p>
       <button class="btn btn-primary" id="research-btn" type="button">Research this platform live</button>
       <ol class="research-log" id="research-log" hidden></ol>
     </div>`;
@@ -338,7 +271,7 @@ async function researchPlatform(query) {
       if (ev.type === "status") logStep(ev.message);
       else if (ev.type === "known") return showPlatform(ev.slug);
       else if (ev.type === "result") {
-        resultHtml = draftBanner(ev.record) + renderAssessment(ev.assessment) + renderComparison(ev.comparison);
+        resultHtml = draftBanner(ev.record) + renderAssessment(ev.assessment);
         el.result.innerHTML = resultHtml;
       } else if (ev.type === "pr") {
         el.result.innerHTML = resultHtml + `<div class="card"><p class="dist-line"><strong>Draft PR opened:</strong> <a href="${esc(ev.url)}" rel="noreferrer">${esc(ev.url)}</a></p></div>`;
@@ -384,15 +317,6 @@ el.suggestions.addEventListener("click", (e) => {
 el.form.addEventListener("submit", (e) => {
   e.preventDefault();
   submitQuery(el.input.value);
-});
-
-el.result.addEventListener("click", (e) => {
-  const link = e.target.closest(".peer-link");
-  if (link) {
-    e.preventDefault();
-    el.input.value = "";
-    showPlatform(link.dataset.slug);
-  }
 });
 
 async function init() {

@@ -3,17 +3,17 @@ import type { DataStore, MetricRow } from "../core/ports.js";
 import { buildAssessment } from "../core/assessment.js";
 import { sendData, sendError } from "./http.js";
 
-/** Compact summary used by list and search results. */
+/**
+ * Compact summary used by list and search results. Intentionally free of any
+ * score, count, or comparability field: the public surface never ranks or
+ * orders platforms against each other.
+ */
 export function toSummary(row: MetricRow) {
   return {
     name: row.name,
     slug: row.slug,
     category: row.category,
     outcome: row.outcome,
-    developerActions: row.developer_action_count,
-    gates: row.gate_count,
-    effortScore: row.heuristic_effort_score,
-    comparability: row.comparability_status,
   };
 }
 
