@@ -1,12 +1,11 @@
 import type {
-  DataStore, LLMProvider, MetricRow, PlatformRecord, RepoWriter, SearchProvider,
+  DataStore, LLMProvider, MetricRow, PlatformRecord, SearchProvider,
 } from "./ports.js";
 import { buildAssessment, type Assessment } from "./assessment.js";
 
 export interface ResearchDeps {
   search: SearchProvider;
   llm: LLMProvider;
-  repo?: RepoWriter;
   store: DataStore;
   /** Bridge to the shared measurement contract (selectedPathRow). */
   buildRow: (record: PlatformRecord) => MetricRow;
@@ -16,8 +15,6 @@ export type ResearchEvent =
   | { type: "status"; step: string; message: string }
   | { type: "known"; slug: string }
   | { type: "result"; assessment: Assessment; record: PlatformRecord; draft: true }
-  | { type: "pr"; url: string }
-  | { type: "pr_skipped"; reason: string }
   | { type: "error"; code: string; message: string }
   | { type: "done" };
 
@@ -38,10 +35,10 @@ function msg(err: unknown): string {
 
 /**
  * Orchestrate live research for an unknown platform: search official docs,
- * reconstruct a schema-valid record, measure and compare it, then (optionally)
- * open a draft PR. Every external step is isolated: a failure emits a typed
- * error/skip event and never throws out of the function. Push-based so the SSE
- * layer can flush each event as it happens.
+ * reconstruct a schema-valid record, then show the documented route. Every
+ * external step is isolated: a failure emits a typed error event and never
+ * throws out of the function. Push-based so the SSE layer can flush each event
+ * as it happens.
  */
 export async function runResearch(platform: string, deps: ResearchDeps, emit: Emit): Promise<void> {
   const slug = slugify(platform);
@@ -83,30 +80,5 @@ export async function runResearch(platform: string, deps: ResearchDeps, emit: Em
   }
 
   emit({ type: "result", assessment, record, draft: true });
-
-  if (!deps.repo) {
-    emit({
-      type: "pr_skipped",
-      reason: "Auto-PR is off (no GITHUB_TOKEN set). The drafted record is shown below for manual submission.",
-    });
-    emit({ type: "done" });
-    return;
-  }
-  if (record.research_status !== "complete") {
-    emit({
-      type: "pr_skipped",
-      reason: `Record marked "${record.research_status}", so no automatic PR was opened. Review it before submitting.`,
-    });
-    emit({ type: "done" });
-    return;
-  }
-
-  try {
-    emit({ type: "status", step: "pr", message: "Opening a draft pull request to the dataset…" });
-    const { url } = await deps.repo.openDraftRecordPR(record);
-    emit({ type: "pr", url });
-  } catch (err) {
-    emit({ type: "pr_skipped", reason: `Could not open a PR automatically: ${msg(err)}` });
-  }
   emit({ type: "done" });
 }

@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 
 import { runResearch } from "../../dist/core/researchPipeline.js";
 import {
-  InMemoryDataStore, FakeSearchProvider, FakeLLMProvider, FakeRepoWriter,
+  InMemoryDataStore, FakeSearchProvider, FakeLLMProvider,
 } from "../../dist/adapters/fakes.js";
 import { selectedPathRow } from "../../lib/measure.mjs";
 
@@ -40,20 +40,19 @@ async function collect(platform, deps) {
 
 const hits = [{ title: "Acme Docs", url: "https://acme.com/docs", content: "Getting started" }];
 
-test("happy path yields a draft result and opens a PR", async () => {
-  const repo = new FakeRepoWriter({ url: "https://github.com/x/y/pull/9" });
+test("happy path yields a draft result with no GitHub contribution step", async () => {
   const deps = {
     search: new FakeSearchProvider(hits),
     llm: new FakeLLMProvider(draftRecord()),
-    repo,
     store: store(),
     buildRow: selectedPathRow,
   };
   const events = await collect("Acme", deps);
   const types = events.map((e) => e.type);
   assert.ok(types.includes("result"));
-  assert.ok(types.includes("pr"));
-  assert.equal(repo.calls, 1);
+  assert.ok(types.includes("done"));
+  assert.ok(!types.includes("pr"));
+  assert.ok(!types.includes("pr_skipped"));
   const result = events.find((e) => e.type === "result");
   assert.equal(result.draft, true);
   assert.equal(result.assessment.name, "Acme");
@@ -70,33 +69,6 @@ test("search failure yields a typed error and no result", async () => {
   const err = events.find((e) => e.type === "error");
   assert.equal(err.code, "search_failed");
   assert.ok(!events.some((e) => e.type === "result"));
-});
-
-test("no repo configured shows result but skips the PR", async () => {
-  const deps = {
-    search: new FakeSearchProvider(hits),
-    llm: new FakeLLMProvider(draftRecord()),
-    store: store(),
-    buildRow: selectedPathRow,
-  };
-  const events = await collect("Acme", deps);
-  assert.ok(events.some((e) => e.type === "result"));
-  const skip = events.find((e) => e.type === "pr_skipped");
-  assert.match(skip.reason, /GITHUB_TOKEN/);
-});
-
-test("non-complete record is not auto-PR'd", async () => {
-  const repo = new FakeRepoWriter();
-  const deps = {
-    search: new FakeSearchProvider(hits),
-    llm: new FakeLLMProvider(draftRecord({ research_status: "needs-human-judgment" })),
-    repo,
-    store: store(),
-    buildRow: selectedPathRow,
-  };
-  const events = await collect("Acme", deps);
-  assert.equal(repo.calls, 0);
-  assert.ok(events.some((e) => e.type === "pr_skipped"));
 });
 
 test("known platform short-circuits to the existing record", async () => {

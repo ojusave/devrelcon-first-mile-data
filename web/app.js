@@ -195,13 +195,14 @@ function renderUnknown(query) {
   el.result.hidden = false;
   el.result.innerHTML = `
     <div class="card unknown-panel">
-      <h2>"${esc(query)}" isn't in the dataset yet</h2>
-      <p class="lede">Run live research: the Atlas searches official documentation, reconstructs a source-grounded first-mile record, and (when configured) opens a draft pull request back to the dataset.</p>
-      <button class="btn btn-primary" id="research-btn" type="button">Research this platform live</button>
-      <ol class="research-log" id="research-log" hidden></ol>
+      <h2>Researching ${esc(query)}</h2>
+      <p class="lede">Looking up official docs and drafting the documented route.</p>
+      <ol class="research-log" id="research-log"></ol>
+      <button class="btn btn-secondary" id="research-btn" type="button" hidden>Try research again</button>
     </div>`;
   document.querySelector("#research-btn").addEventListener("click", () => researchPlatform(query));
   el.result.scrollIntoView({ behavior: "smooth", block: "start" });
+  researchPlatform(query);
 }
 
 function logStep(text, cls) {
@@ -214,18 +215,6 @@ function logStep(text, cls) {
   logEl.appendChild(li);
 }
 
-function draftBanner(record) {
-  const json = JSON.stringify(record, null, 2);
-  const blob = URL.createObjectURL(new Blob([json], { type: "application/json" }));
-  return `
-    <div class="draft-banner">
-      <strong>Machine-drafted, unverified.</strong> Generated live from official docs via You.com + an LLM. It passed schema
-      validation but has not been human-reviewed. Treat it as a starting point, not a source of truth.
-      <a href="${blob}" download="${esc(record.platform.slug)}.json">Download the drafted record (JSON)</a>
-    </div>`;
-}
-
-// Parse a Server-Sent Events stream from a fetch Response body.
 async function* readSse(res) {
   const reader = res.body.getReader();
   const decoder = new TextDecoder();
@@ -251,7 +240,12 @@ async function* readSse(res) {
 
 async function researchPlatform(query) {
   const btn = document.querySelector("#research-btn");
-  if (btn) btn.disabled = true;
+  if (btn) {
+    btn.hidden = true;
+    btn.disabled = true;
+  }
+  const logEl = document.querySelector("#research-log");
+  if (logEl) logEl.innerHTML = "";
   logStep("Starting…");
   try {
     const res = await fetch("/api/research", {
@@ -262,30 +256,32 @@ async function researchPlatform(query) {
     if (!res.ok || !res.body) {
       const body = await res.json().catch(() => ({}));
       logStep(body.error ? body.error.message : `Research unavailable (${res.status}).`, "err");
-      if (btn) btn.disabled = false;
+      if (btn) {
+        btn.hidden = false;
+        btn.disabled = false;
+      }
       return;
     }
 
-    let resultHtml = "";
     for await (const ev of readSse(res)) {
       if (ev.type === "status") logStep(ev.message);
       else if (ev.type === "known") return showPlatform(ev.slug);
       else if (ev.type === "result") {
-        resultHtml = draftBanner(ev.record) + renderAssessment(ev.assessment);
-        el.result.innerHTML = resultHtml;
-      } else if (ev.type === "pr") {
-        el.result.innerHTML = resultHtml + `<div class="card"><p class="dist-line"><strong>Draft PR opened:</strong> <a href="${esc(ev.url)}" rel="noreferrer">${esc(ev.url)}</a></p></div>`;
-      } else if (ev.type === "pr_skipped") {
-        el.result.innerHTML = resultHtml + `<div class="card"><p class="dist-line">${esc(ev.reason)}</p></div>`;
+        el.result.innerHTML = renderAssessment(ev.assessment);
       } else if (ev.type === "error") {
-        if (resultHtml) el.result.innerHTML = resultHtml + `<div class="card"><p class="dist-line err">${esc(ev.message)}</p></div>`;
-        else logStep(ev.message, "err");
+        logStep(ev.message, "err");
+        if (btn) {
+          btn.hidden = false;
+          btn.disabled = false;
+        }
       }
     }
   } catch {
     logStep("Lost connection to the research service.", "err");
-  } finally {
-    if (btn) btn.disabled = false;
+    if (btn) {
+      btn.hidden = false;
+      btn.disabled = false;
+    }
   }
 }
 
