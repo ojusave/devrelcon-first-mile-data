@@ -7,7 +7,6 @@ import { sendError } from "./api/http.js";
 import { createRecordValidator } from "./core/validate.js";
 import { YouSearchProvider } from "./adapters/youSearch.js";
 import { OpenRouterProvider } from "./adapters/openRouter.js";
-import { GitHubPrWriter } from "./adapters/githubPr.js";
 import type { ResearchDeps } from "./core/researchPipeline.js";
 import type { PlatformRecord, MetricRow } from "./core/ports.js";
 import { selectedPathRow } from "../lib/measure.mjs";
@@ -28,14 +27,10 @@ function buildResearchDeps(store: LocalDataStore): ResearchDeps | null {
   const categories = [...new Set(store.listRows().map((r) => r.category))].sort();
   const search = new YouSearchProvider(config.youApiKey);
   const llm = new OpenRouterProvider(config.openRouterApiKey, config.openRouterModel, validate, schemaText, categories);
-  const repo = config.githubToken
-    ? new GitHubPrWriter(config.githubToken, config.githubRepoSlug)
-    : undefined;
 
   return {
     search,
     llm,
-    repo,
     store,
     buildRow: (record: PlatformRecord): MetricRow => selectedPathRow(record),
   };
